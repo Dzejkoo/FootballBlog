@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import axios from 'axios';
+import { PlayerName } from './components/atoms/PlayerName/PlayerName';
 
-function App() {
+const Wrapper = styled.div`
+  background-color: yellow;
+`;
+
+export const App = () => {
+  const [players, setPlayers] = useState([]);
+  useEffect(() => {
+    axios
+      .get('/arsenalPlayers')
+      .then(({ data: { arsenalPlayers } }) => setPlayers(arsenalPlayers))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      {players.map((playerData, i) => (
+        <PlayerName key={i} playerData={playerData}></PlayerName>
+      ))}
+    </Wrapper>
   );
-}
-
-export default App;
+};
