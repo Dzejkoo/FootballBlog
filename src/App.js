@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import { PlayerName } from './components/atoms/PlayerName/PlayerName';
+import { PlayerCard } from './components/moleculas/PlayerCard';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './assets/styles/theme';
+import { GlobalStyle } from './assets/styles/globalStyle';
 
 const Wrapper = styled.div`
-  background-color: yellow;
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 export const App = () => {
@@ -17,10 +21,15 @@ export const App = () => {
   }, []);
 
   return (
-    <Wrapper>
-      {players.map((playerData, i) => (
-        <PlayerName key={i} playerData={playerData}></PlayerName>
-      ))}
-    </Wrapper>
+    <>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Wrapper>
+          {players.map((playerData, i) => (
+            <PlayerCard key={i} playerData={playerData}></PlayerCard>
+          ))}
+        </Wrapper>
+      </ThemeProvider>
+    </>
   );
 };

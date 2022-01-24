@@ -2,8 +2,10 @@ export const theme = {
   colors: {
     white: '#F6F6F6',
     black: '#434343',
-    darkGreen: '#00634D',
-    lightGreen: '#007E6B',
+    defenders: '#00FF87',
+    midfielders: '#05F0FF',
+    golkeeper: '#EBFF00',
+    forwards: '#E90052',
   },
   fontSize: {
     xxl: '34px',
