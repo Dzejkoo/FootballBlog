@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useReducer } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { ThemeProvider } from 'styled-components';
@@ -18,45 +18,52 @@ const cases = {
   Forward: 'Forward',
 };
 
+const initialState = {
+  loading: true,
+  error: '',
+  post: {},
+  dataGoalkeepr: {},
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'FETCH_SUCCESS':
+      return {
+        loading: false,
+        post: action.payload,
+        error: '',
+      };
+    case 'FETCH_ERROR':
+      return {
+        loading: false,
+        post: {},
+        error: 'Something went wrong!',
+      };
+    default:
+      return state;
+  }
+};
+
 export const App = () => {
-  const [players, setPlayers] = useState([]);
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   useEffect(() => {
     axios
       .get('/arsenalPlayers')
-      .then(({ data: { arsenalPlayers } }) => setPlayers(arsenalPlayers))
-      .catch((err) => console.log(err));
+      .then(({ data }) => {
+        dispatch({ type: 'FETCH_SUCCESS', payload: data.arsenalPlayers });
+      })
+      .catch((err) => {
+        dispatch({ type: 'FETCH_ERROR' });
+      });
   }, []);
-
-  const goalkeeper = players.filter((player) => player.position === cases.Goalkeeper);
-  const defender = players.filter((player) => player.position === cases.Defender);
-  const midfielder = players.filter((player) => player.position === cases.Midfielder);
-  const forward = players.filter((player) => player.position === cases.Forward);
 
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Wrapper>
-          <h2>{cases.Goalkeeper}</h2>
-          {goalkeeper.map((playerData, i) => (
-            <PlayerCard key={i} playerData={playerData} />
-          ))}
-        </Wrapper>
-        <Wrapper>
-          <h2>{cases.Defender}</h2>
-          {defender.map((playerData, i) => (
-            <PlayerCard key={i} playerData={playerData} />
-          ))}
-        </Wrapper>
-        <Wrapper>
-          <h2>{cases.Midfielder}</h2>
-          {midfielder.map((playerData, i) => (
-            <PlayerCard key={i} playerData={playerData} />
-          ))}
-        </Wrapper>
-        <Wrapper>
-          <h2>{cases.Forward}</h2>
-          {forward.map((playerData, i) => (
+          {state.post.map((playerData, i) => (
             <PlayerCard key={i} playerData={playerData} />
           ))}
         </Wrapper>
