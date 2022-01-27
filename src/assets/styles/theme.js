@@ -8,7 +8,7 @@ export const theme = {
     forward: '#E90052',
   },
   fontSize: {
-    xxl: '34px',
+    xxl: '30px',
     xl: '24px',
     l: '17px',
     m: '12px',

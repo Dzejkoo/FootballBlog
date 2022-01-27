@@ -1,22 +1,9 @@
-import React, { useEffect, useState, useReducer } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useReducer } from 'react';
 import axios from 'axios';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './assets/styles/theme';
 import { GlobalStyle } from './assets/styles/globalStyle';
-import { PlayerCard } from './components/moleculas/PlayerCard';
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const cases = {
-  Goalkeeper: 'Goalkeeper',
-  Defender: 'Defender',
-  Midfielder: 'Midfielder',
-  Forward: 'Forward',
-};
+import { Team } from './components/organisms/Team';
 
 const initialState = {
   loading: true,
@@ -62,11 +49,7 @@ export const App = () => {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Wrapper>
-          {state.post.map((playerData, i) => (
-            <PlayerCard key={i} playerData={playerData} />
-          ))}
-        </Wrapper>
+        {state.loading ? 'Loading' : <Team state={state} />}
       </ThemeProvider>
     </>
   );
