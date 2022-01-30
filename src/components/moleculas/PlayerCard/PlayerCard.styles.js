@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import bgcImages from '../../public/img/bgcCard';
+import bgcImages from '../../../public/img/bgcCard';
 
 const positionTheme = ({ position }) => {
   if (position === 'Goalkeeper') return bgcImages.bgcGoalkeepers;

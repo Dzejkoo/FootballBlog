@@ -3,13 +3,12 @@ import axios from 'axios';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './assets/styles/theme';
 import { GlobalStyle } from './assets/styles/globalStyle';
-import { Team } from './components/organisms/Team';
+import { Team } from './components/organisms/Team/Team';
 
 const initialState = {
   loading: true,
   error: '',
   post: {},
-  dataGoalkeepr: {},
 };
 
 const reducer = (state, action) => {
@@ -26,6 +25,7 @@ const reducer = (state, action) => {
         post: {},
         error: 'Something went wrong!',
       };
+    case 'INPUT_CHANGE':
     default:
       return state;
   }
