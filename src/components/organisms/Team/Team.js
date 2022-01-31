@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ViewWrapper, Wrapper, PositionTitle } from './Team.styles';
+import { ViewWrapper, Wrapper } from './Team.styles';
+import { Title } from '../../atoms/Title/Title';
 import { PlayerCard } from '../../moleculas/PlayerCard/PlayerCard';
 import { FormPlayer } from '../../moleculas/FormPlayer/FormPlayer';
 
@@ -14,13 +15,19 @@ const initialFormValue = {
   search: '',
 };
 
+const filterPlayers = (dataPlayer) => {
+  const goalkeepers = dataPlayer.filter((player) => player.position === cases.Goalkeeper);
+  const defender = dataPlayer.filter((player) => player.position === cases.Defender);
+  const midfielder = dataPlayer.filter((player) => player.position === cases.Midfielder);
+  const forward = dataPlayer.filter((player) => player.position === cases.Forward);
+
+  return { goalkeepers, defender, midfielder, forward };
+};
+
 export const Team = ({ state: { post } }) => {
   const [formValue, setValue] = useState(initialFormValue);
 
-  const goalkeepers = post.filter((player) => player.position === cases.Goalkeeper);
-  const defender = post.filter((player) => player.position === cases.Defender);
-  const midfielder = post.filter((player) => player.position === cases.Midfielder);
-  const forward = post.filter((player) => player.position === cases.Forward);
+  const filtereedPlayers = filterPlayers(post);
 
   const handleInputChange = (e) => {
     e.preventDefault();
@@ -35,30 +42,16 @@ export const Team = ({ state: { post } }) => {
   return (
     <ViewWrapper>
       <FormPlayer onChange={handleInputChange} value={formValue.search} onSubmit={handleSubmit} />
-      <Wrapper>
-        <PositionTitle>{cases.Goalkeeper}</PositionTitle>
-        {goalkeepers.map((playerData, i) => (
-          <PlayerCard playerData={playerData} key={i} />
-        ))}
-      </Wrapper>
-      <Wrapper>
-        <PositionTitle>{cases.Defender}</PositionTitle>
-        {defender.map((playerData, i) => (
-          <PlayerCard playerData={playerData} key={i} />
-        ))}
-      </Wrapper>
-      <Wrapper>
-        <PositionTitle>{cases.Midfielder}</PositionTitle>
-        {midfielder.map((playerData, i) => (
-          <PlayerCard playerData={playerData} key={i} />
-        ))}
-      </Wrapper>
-      <Wrapper>
-        <PositionTitle>{cases.Forward}</PositionTitle>
-        {forward.map((playerData, i) => (
-          <PlayerCard playerData={playerData} key={i} />
-        ))}
-      </Wrapper>
+      {Object.keys(filtereedPlayers).map((key) => {
+        return (
+          <Wrapper key={key}>
+            <Title>{key}</Title>
+            {filtereedPlayers[key].map((playerData) => {
+              return <PlayerCard key={playerData.id} playerData={playerData} />;
+            })}
+          </Wrapper>
+        );
+      })}
     </ViewWrapper>
   );
 };
