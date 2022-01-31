@@ -1,33 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { ViewWrapper, Wrapper } from './Team.styles';
-import { Title } from '../../atoms/Title/Title';
+import { Title } from '../../atoms/Title/Title.styles';
 import { PlayerCard } from '../../moleculas/PlayerCard/PlayerCard';
 import { FormPlayer } from '../../moleculas/FormPlayer/FormPlayer';
-
-const cases = {
-  Goalkeeper: 'Goalkeeper',
-  Defender: 'Defender',
-  Midfielder: 'Midfielder',
-  Forward: 'Forward',
-};
+import { TeamContext } from '../../../providers/TeamProvider';
 
 const initialFormValue = {
   search: '',
 };
 
-const filterPlayers = (dataPlayer) => {
-  const goalkeepers = dataPlayer.filter((player) => player.position === cases.Goalkeeper);
-  const defender = dataPlayer.filter((player) => player.position === cases.Defender);
-  const midfielder = dataPlayer.filter((player) => player.position === cases.Midfielder);
-  const forward = dataPlayer.filter((player) => player.position === cases.Forward);
-
-  return { goalkeepers, defender, midfielder, forward };
-};
-
 export const Team = ({ state: { post } }) => {
-  const [formValue, setValue] = useState(initialFormValue);
-
+  const { filterPlayers } = useContext(TeamContext);
   const filtereedPlayers = filterPlayers(post);
+
+  const [formValue, setValue] = useState(initialFormValue);
 
   const handleInputChange = (e) => {
     e.preventDefault();

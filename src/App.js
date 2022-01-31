@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './assets/styles/theme';
 import { GlobalStyle } from './assets/styles/globalStyle';
 import { Team } from './components/organisms/Team/Team';
+import TeamProvider from './providers/TeamProvider';
 
 const initialState = {
   loading: true,
@@ -46,11 +47,9 @@ export const App = () => {
   }, []);
 
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        {state.loading ? 'Loading' : <Team state={state} />}
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <TeamProvider>{state.loading ? 'Loading' : <Team state={state} />}</TeamProvider>
+    </ThemeProvider>
   );
 };
