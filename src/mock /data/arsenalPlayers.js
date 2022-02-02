@@ -37,6 +37,7 @@ export const arsenalPlayers = [
   },
   {
     id: '4',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/White.png?raw=true',
     name: {
       fullName: 'Ben White',
       firstName: 'Ben',
@@ -49,6 +50,7 @@ export const arsenalPlayers = [
   },
   {
     id: '5',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Gabriel.png?raw=true',
     name: {
       fullName: 'Gabriel',
       firstName: '',
@@ -61,6 +63,7 @@ export const arsenalPlayers = [
   },
   {
     id: '6',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Holding.png?raw=true',
     name: {
       fullName: 'Rob Holding',
       firstName: 'Rob',
@@ -73,6 +76,7 @@ export const arsenalPlayers = [
   },
   {
     id: '7',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Chambers.png?raw=true',
     name: {
       fullName: 'Calum Chambers',
       firstName: 'Calum',
@@ -86,6 +90,7 @@ export const arsenalPlayers = [
   },
   {
     id: '8',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Tierney.png?raw=true',
     name: {
       fullName: 'Kieran Tierney',
       firstName: 'Kieran',
@@ -98,6 +103,7 @@ export const arsenalPlayers = [
   },
   {
     id: '9',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Tavares.png?raw=true',
     name: {
       fullName: 'Nuno Tavares',
       firstName: 'Nuno',
@@ -111,6 +117,7 @@ export const arsenalPlayers = [
   },
   {
     id: '10',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Tomiyasu.png?raw=true',
     name: {
       fullName: 'Takehiro Tomiyasu',
       firstName: 'Takehiro',
@@ -124,6 +131,7 @@ export const arsenalPlayers = [
   },
   {
     id: '11',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Cedric.png?raw=true',
     name: {
       fullName: 'Cedric Soares',
       firstName: 'Cedric',
@@ -136,6 +144,7 @@ export const arsenalPlayers = [
   },
   {
     id: '12',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Thomas.png?raw=true',
     name: {
       fullName: 'Thomas Partey',
       firstName: 'Thomas',
@@ -148,6 +157,7 @@ export const arsenalPlayers = [
   },
   {
     id: '13',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Xhaka.png?raw=true',
     name: {
       fullName: 'Granit Xhaka',
       firstName: 'Granit',
@@ -160,6 +170,7 @@ export const arsenalPlayers = [
   },
   {
     id: '14',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Elneny.png?raw=true',
     name: {
       fullName: 'Mohamend Elneny',
       firstName: 'Mohamend',
@@ -172,6 +183,7 @@ export const arsenalPlayers = [
   },
   {
     id: '15',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Lokonga.png?raw=true',
     name: {
       fullName: 'Albert Sami Lokonga',
       firstName: 'Albert Sami',
@@ -184,6 +196,7 @@ export const arsenalPlayers = [
   },
   {
     id: '16',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Saka.png?raw=true',
     name: {
       fullName: 'Bukayo Saka',
       firstName: 'Bukayo',
@@ -196,6 +209,7 @@ export const arsenalPlayers = [
   },
   {
     id: '17',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Odegaard.png?raw=true',
     name: {
       fullName: 'Martin Odegaard',
       firstName: 'Martin',
@@ -208,6 +222,7 @@ export const arsenalPlayers = [
   },
   {
     id: '18',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/SmithRowe.png?raw=true',
     name: {
       fullName: 'Emil Smith Rowe',
       firstName: 'Emil Smith',
@@ -220,6 +235,7 @@ export const arsenalPlayers = [
   },
   {
     id: '19',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Martinelli.png?raw=true',
     name: {
       fullName: 'Gabriel Martinelli',
       firstName: 'Gabriel',
@@ -232,6 +248,7 @@ export const arsenalPlayers = [
   },
   {
     id: '20',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Pepe.png?raw=true',
     name: {
       fullName: 'Nicolas Pepe',
       firstName: 'Nicolas',
@@ -244,6 +261,7 @@ export const arsenalPlayers = [
   },
   {
     id: '21',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Lacazette.png?raw=true',
     name: {
       fullName: 'Alexandre Lacazette',
       firstName: 'Alexandre',
@@ -256,6 +274,7 @@ export const arsenalPlayers = [
   },
   {
     id: '22',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Aubameyang.png?raw=true',
     name: {
       fullName: 'Pierre-Emerick Aubameyang',
       firstName: 'Pierre-Emerick',
@@ -268,6 +287,7 @@ export const arsenalPlayers = [
   },
   {
     id: '23',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Nketiah.png?raw=true',
     name: {
       fullName: 'Eddie Nketiah',
       firstName: 'Eddie',

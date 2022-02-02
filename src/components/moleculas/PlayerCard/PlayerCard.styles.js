@@ -14,4 +14,8 @@ export const WrapperCard = styled.div`
   margin: 15px 30px;
   background-image: url(${(position) => positionTheme(position)});
   background-size: cover;
+  overflow: hidden;
+  img {
+    width: 100%;
+  }
 `;
