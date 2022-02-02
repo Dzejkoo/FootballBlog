@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Title = styled.h2`
   margin-right: 100%;
   margin-left: 30px;
+  margin-bottom: 12px;
   font-weight: 600;
   font-size: ${({ theme }) => theme.fontSize.xxl};
   background-color: ${({ theme }) => theme.colors.white};

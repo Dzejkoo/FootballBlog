@@ -6,6 +6,7 @@ import { GlobalStyle } from './assets/styles/globalStyle';
 import { Team } from './components/organisms/Team/Team';
 import TeamProvider from './providers/TeamProvider';
 import Spinner from './components/atoms/Spinner/Spinner';
+import { MainTemplate } from './components/templates/MainTemplate';
 
 const initialState = {
   loading: true,
@@ -50,7 +51,9 @@ export const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <TeamProvider>{state.loading ? <Spinner /> : <Team state={state} />}</TeamProvider>
+      <MainTemplate>
+        <TeamProvider>{state.loading ? <Spinner /> : <Team state={state} />}</TeamProvider>
+      </MainTemplate>
     </ThemeProvider>
   );
 };

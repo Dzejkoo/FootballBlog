@@ -1,7 +1,9 @@
 export const theme = {
   colors: {
     white: '#F6F6F6',
+    grey: '#C4C4C4',
     black: '#434343',
+    logoRed: '#B71515',
     defender: '#00FF87',
     midfielder: '#05F0FF',
     golkeeper: '#EBFF00',

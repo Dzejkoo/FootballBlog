@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import bgcImages from '../../../public/img/bgcCard';
+import bgcImages from '../../../assets/images/bgcCard';
 
 const positionTheme = ({ position }) => {
   if (position === 'Goalkeeper') return bgcImages.bgcGoalkeepers;
@@ -11,7 +11,7 @@ const positionTheme = ({ position }) => {
 export const WrapperCard = styled.div`
   width: 180px;
   height: 150px;
-  margin: 30px;
+  margin: 15px 30px;
   background-image: url(${(position) => positionTheme(position)});
   background-size: cover;
 `;
