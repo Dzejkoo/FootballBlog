@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { TeamContext } from '../../../providers/TeamProvider';
 
 const Wrapper = styled.div`
   label {
   }
 `;
 
-export const FormPlayer = ({ handleSubmit, ...props }) => {
+export const FormPlayer = ({ handleSubmit }) => {
+  const { searchPhrase, setSearchPhrase } = useContext(TeamContext);
   return (
     <Wrapper as="form" onSubmit={handleSubmit}>
       <label htmlFor="search" name="search">
         Search Player
       </label>
-      <input id="search" name="search" {...props}></input>
-      <button type="submit">Search</button>
+      <input onChange={(e) => setSearchPhrase(e.target.value)} value={searchPhrase} name="Search" id="Search" />
     </Wrapper>
   );
 };

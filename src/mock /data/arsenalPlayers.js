@@ -2,8 +2,9 @@ export const arsenalPlayers = [
   {
     id: '1',
     name: {
+      fullName: 'Aron Ramsdale',
       firstName: 'Aron',
-      secoundName: 'Ramsdale',
+      lastName: 'Ramsdale',
     },
     position: 'Goalkeeper',
     age: '23',
@@ -13,8 +14,9 @@ export const arsenalPlayers = [
   {
     id: '2',
     name: {
+      fullName: 'Bernd Leno',
       firstName: 'Bernd',
-      secoundName: 'Leno',
+      lastName: 'Leno',
     },
     position: 'Goalkeeper',
     age: '29',
@@ -24,8 +26,9 @@ export const arsenalPlayers = [
   {
     id: '3',
     name: {
+      fullName: 'Arthur Okonkwo',
       firstName: 'Arthur',
-      secoundName: 'Okonkwo',
+      lastName: 'Okonkwo',
     },
     position: 'Goalkeeper',
     age: '20',
@@ -35,8 +38,9 @@ export const arsenalPlayers = [
   {
     id: '4',
     name: {
+      fullName: 'Ben White',
       firstName: 'Ben',
-      secoundName: 'White',
+      lastName: 'White',
     },
     position: 'Defender',
     age: '24',
@@ -46,8 +50,9 @@ export const arsenalPlayers = [
   {
     id: '5',
     name: {
+      fullName: 'Gabriel',
       firstName: '',
-      secoundName: 'Gabriel',
+      lastName: 'Gabriel',
     },
     position: 'Defender',
     age: '24',
@@ -57,8 +62,9 @@ export const arsenalPlayers = [
   {
     id: '6',
     name: {
+      fullName: 'Rob Holding',
       firstName: 'Rob',
-      secoundName: 'Holding',
+      lastName: 'Holding',
     },
     position: 'Defender',
     age: '26',
@@ -68,8 +74,9 @@ export const arsenalPlayers = [
   {
     id: '7',
     name: {
+      fullName: 'Calum Chambers',
       firstName: 'Calum',
-      secoundName: 'Chambers',
+      lastName: 'Chambers',
     },
 
     position: 'Defender',
@@ -80,8 +87,9 @@ export const arsenalPlayers = [
   {
     id: '8',
     name: {
+      fullName: 'Kieran Tierney',
       firstName: 'Kieran',
-      secoundName: 'Tierney',
+      lastName: 'Tierney',
     },
     position: 'Defender',
     age: '24',
@@ -91,8 +99,9 @@ export const arsenalPlayers = [
   {
     id: '9',
     name: {
+      fullName: 'Nuno Tavares',
       firstName: 'Nuno',
-      secoundName: 'Tavares',
+      lastName: 'Tavares',
     },
 
     position: 'Defender',
@@ -103,8 +112,9 @@ export const arsenalPlayers = [
   {
     id: '10',
     name: {
+      fullName: 'Takehiro Tomiyasu',
       firstName: 'Takehiro',
-      secoundName: 'Tomiyasu',
+      lastName: 'Tomiyasu',
     },
 
     position: 'Defender',
@@ -115,8 +125,9 @@ export const arsenalPlayers = [
   {
     id: '11',
     name: {
+      fullName: 'Cedric Soares',
       firstName: 'Cedric',
-      secoundName: 'Soares',
+      lastName: 'Soares',
     },
     position: 'Defender',
     age: '30',
@@ -126,8 +137,9 @@ export const arsenalPlayers = [
   {
     id: '12',
     name: {
+      fullName: 'Thomas Partey',
       firstName: 'Thomas',
-      secoundName: 'Partey',
+      lastName: 'Partey',
     },
     position: 'Midfielder',
     age: '28',
@@ -137,8 +149,9 @@ export const arsenalPlayers = [
   {
     id: '13',
     name: {
+      fullName: 'Granit Xhaka',
       firstName: 'Granit',
-      secoundName: 'Xhaka',
+      lastName: 'Xhaka',
     },
     position: 'Midfielder',
     age: '29',
@@ -148,8 +161,9 @@ export const arsenalPlayers = [
   {
     id: '14',
     name: {
+      fullName: 'Mohamend Elneny',
       firstName: 'Mohamend',
-      secoundName: 'Elneny',
+      lastName: 'Elneny',
     },
     position: 'Midfielder',
     age: '29',
@@ -159,8 +173,9 @@ export const arsenalPlayers = [
   {
     id: '15',
     name: {
+      fullName: 'Albert Sami Lokonga',
       firstName: 'Albert Sami',
-      secoundName: 'Lokonga',
+      lastName: 'Lokonga',
     },
     position: 'Midfielder',
     age: '22',
@@ -170,8 +185,9 @@ export const arsenalPlayers = [
   {
     id: '16',
     name: {
+      fullName: 'Bukayo Saka',
       firstName: 'Bukayo',
-      secoundName: 'Saka',
+      lastName: 'Saka',
     },
     position: 'Midfielder',
     age: '20',
@@ -181,8 +197,9 @@ export const arsenalPlayers = [
   {
     id: '17',
     name: {
+      fullName: 'Martin Odegaard',
       firstName: 'Martin',
-      secoundName: 'Odegaard',
+      lastName: 'Odegaard',
     },
     position: 'Midfielder',
     age: '23',
@@ -192,8 +209,9 @@ export const arsenalPlayers = [
   {
     id: '18',
     name: {
+      fullName: 'Emil Smith Rowe',
       firstName: 'Emil Smith',
-      secoundName: 'Rowe',
+      lastName: 'Rowe',
     },
     position: 'Midfielder',
     age: '21',
@@ -203,8 +221,9 @@ export const arsenalPlayers = [
   {
     id: '19',
     name: {
+      fullName: 'Gabriel Martinelli',
       firstName: 'Gabriel',
-      secoundName: 'Martinelli',
+      lastName: 'Martinelli',
     },
     position: 'Forward',
     age: '20',
@@ -214,8 +233,9 @@ export const arsenalPlayers = [
   {
     id: '20',
     name: {
+      fullName: 'Nicolas Pepe',
       firstName: 'Nicolas',
-      secoundName: 'Pepe',
+      lastName: 'Pepe',
     },
     position: 'Forward',
     age: '26',
@@ -225,8 +245,9 @@ export const arsenalPlayers = [
   {
     id: '21',
     name: {
+      fullName: 'Alexandre Lacazette',
       firstName: 'Alexandre',
-      secoundName: 'Lacazette',
+      lastName: 'Lacazette',
     },
     position: 'Forward',
     age: '30',
@@ -236,8 +257,9 @@ export const arsenalPlayers = [
   {
     id: '22',
     name: {
+      fullName: 'Pierre-Emerick Aubameyang',
       firstName: 'Pierre-Emerick',
-      secoundName: 'Aubameyang',
+      lastName: 'Aubameyang',
     },
     position: 'Forward',
     age: '32',
@@ -247,8 +269,9 @@ export const arsenalPlayers = [
   {
     id: '23',
     name: {
+      fullName: 'Eddie Nketiah',
       firstName: 'Eddie',
-      secoundName: 'Nketiah',
+      lastName: 'Nketiah',
     },
     position: 'Forward',
     age: '22',
