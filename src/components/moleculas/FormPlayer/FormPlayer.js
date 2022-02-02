@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { TeamContext } from '../../../providers/TeamProvider';
 
 const Wrapper = styled.div`
+  width: 100%;
   input {
     padding: 10px 20px;
     margin-left: 30px;

@@ -9,6 +9,8 @@ export const Wrapper = styled.div`
   }
 `;
 export const ViewWrapper = styled.div`
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
 `;

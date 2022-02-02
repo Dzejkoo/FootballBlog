@@ -1,18 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Navigation } from '../../moleculas/Navigation/Navigation';
-import logo from '../../../assets/images/Logo/Arsenal-logo.png';
+import logo from '../../../assets/images/logo/Arsenal-logo.png';
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  width: 90%;
+  margin: 20px auto;
+`;
 
 const LogoWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  img {
-    width: 80px;
-    height: 93px;
-    transform: translateX(10px);
-  }
+  width: 90%;
+  width: 80px;
+  height: 93px;
+  transform: translateX(10px);
 `;
 
 const Arsenal = styled.div`
