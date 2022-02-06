@@ -5,14 +5,16 @@ import { PlayerCard } from '../../moleculas/PlayerCard/PlayerCard';
 import { FormPlayer } from '../../moleculas/FormPlayer/FormPlayer';
 import { TeamContext } from '../../../providers/TeamProvider';
 
-export const Team = ({ state: { post } }) => {
+export const Team = () => {
   const { filterPlayers, searchPhrase, getMatchingPlayers } = useContext(TeamContext);
-  const matchedPlayers = getMatchingPlayers(post);
-  const filtereedPlayers = filterPlayers(post);
+  const matchedPlayers = getMatchingPlayers();
+  const filtereedPlayers = filterPlayers();
+
+  console.log(matchedPlayers, filtereedPlayers);
 
   return (
     <ViewWrapper>
-      <FormPlayer name="Search" post={post} />
+      <FormPlayer name="Search" />
       {searchPhrase && matchedPlayers.length
         ? matchedPlayers.map((playerData) => <PlayerCard playerData={playerData} />)
         : Object.keys(filtereedPlayers).map((key) => {
