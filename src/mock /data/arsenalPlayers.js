@@ -1,6 +1,7 @@
 export const arsenalPlayers = [
   {
     id: '1',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Ramsdale.png?raw=true',
     name: {
       fullName: 'Aron Ramsdale',
       firstName: 'Aron',
@@ -13,6 +14,7 @@ export const arsenalPlayers = [
   },
   {
     id: '2',
+    image: 'https://raw.githubusercontent.com/Dzejkoo/fs-players-card/main/src/assets/images/players/Leno.png',
     name: {
       fullName: 'Bernd Leno',
       firstName: 'Bernd',
@@ -25,6 +27,7 @@ export const arsenalPlayers = [
   },
   {
     id: '3',
+    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Okonkwo.png?raw=true',
     name: {
       fullName: 'Arthur Okonkwo',
       firstName: 'Arthur',

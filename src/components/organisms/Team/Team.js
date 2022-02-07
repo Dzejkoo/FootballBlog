@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
-import { ViewWrapper, Wrapper } from './Team.styles';
+import { ViewWrapper, Wrapper, LoadingWrapper } from './Team.styles';
 import { Title } from '../../atoms/Title/Title.styles';
 import { PlayerCard } from '../../moleculas/PlayerCard/PlayerCard';
 import { FormPlayer } from '../../moleculas/FormPlayer/FormPlayer';
 import { TeamContext } from '../../../providers/TeamProvider';
+import Spinner from '../../atoms/Spinner/Spinner';
 
-export const Team = ({ state: { post } }) => {
+export const Team = ({ state: { post, loading } }) => {
   const { filterPlayers, searchPhrase, getMatchingPlayers } = useContext(TeamContext);
   const matchedPlayers = getMatchingPlayers(post);
   const filtereedPlayers = filterPlayers(post);

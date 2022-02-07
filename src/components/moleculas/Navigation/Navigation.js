@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -19,8 +20,8 @@ const Wrapper = styled.div`
 export const Navigation = () => {
   return (
     <Wrapper>
-      <button>Team</button>
-      <button>Set Team</button>
+      <Link to="/">Team</Link>
+      <Link to="/pick-team">Set Team</Link>
     </Wrapper>
   );
 };
