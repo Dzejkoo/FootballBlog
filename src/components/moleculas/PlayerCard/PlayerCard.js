@@ -6,7 +6,7 @@ export const PlayerCard = ({ playerData: { name, position, image } }) => {
   return (
     <WrapperCard position={position}>
       <PlayerName name={name} />
-      <img src={image} alt="Player photo"></img>
+      <img src={playerPhoto} alt="Player photo" />
     </WrapperCard>
   );
 };

@@ -8,12 +8,14 @@ import Spinner from '../../atoms/Spinner/Spinner';
 
 export const Team = ({ state: { post, loading } }) => {
   const { filterPlayers, searchPhrase, getMatchingPlayers } = useContext(TeamContext);
-  const matchedPlayers = getMatchingPlayers(post);
-  const filtereedPlayers = filterPlayers(post);
+  const matchedPlayers = getMatchingPlayers();
+  const filtereedPlayers = filterPlayers();
+
+  console.log(matchedPlayers, filtereedPlayers);
 
   return (
     <ViewWrapper>
-      <FormPlayer name="Search" post={post} />
+      <FormPlayer name="Search" />
       {searchPhrase && matchedPlayers.length
         ? matchedPlayers.map((playerData) => <PlayerCard playerData={playerData} />)
         : Object.keys(filtereedPlayers).map((key) => {
