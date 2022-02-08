@@ -4,14 +4,12 @@ import { Title } from '../../atoms/Title/Title.styles';
 import { PlayerCard } from '../../moleculas/PlayerCard/PlayerCard';
 import { FormPlayer } from '../../moleculas/FormPlayer/FormPlayer';
 import { TeamContext } from '../../../providers/TeamProvider';
-import Spinner from '../../atoms/Spinner/Spinner';
 
-export const Team = ({ state: { post, loading } }) => {
+export const Team = ({ state: { post } }) => {
+  console.log(post);
   const { filterPlayers, searchPhrase, getMatchingPlayers } = useContext(TeamContext);
-  const matchedPlayers = getMatchingPlayers();
-  const filtereedPlayers = filterPlayers();
-
-  console.log(matchedPlayers, filtereedPlayers);
+  const matchedPlayers = getMatchingPlayers(post);
+  const filtereedPlayers = filterPlayers(post);
 
   return (
     <ViewWrapper>

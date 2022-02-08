@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useReducer, useEffect } from 'react';
+import axios from 'axios';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './assets/styles/theme';
 import { GlobalStyle } from './assets/styles/globalStyle';
 import { Team } from './components/organisms/Team/Team';
 import { PickTeam } from './components/organisms/PickTeam/PickTeam';
 import TeamProvider from './providers/TeamProvider';
-// import Spinner from './components/atoms/Spinner/Spinner';
 import { MainTemplate } from './components/templates/MainTemplate';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { PickTeam } from './components/organisms/PickTeam/PickTeam';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Spinner from './components/atoms/Spinner/Spinner';
 
 const initialState = {
   loading: true,
@@ -37,6 +37,18 @@ const reducer = (state, action) => {
 };
 
 export const App = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    axios
+      .get('/arsenalPlayers')
+      .then(({ data }) => {
+        dispatch({ type: 'FETCH_SUCCESS', payload: data.arsenalPlayers });
+      })
+      .catch((err) => {
+        dispatch({ type: 'FETCH_ERROR' });
+      });
+  }, []);
   return (
     <Router>
       <ThemeProvider theme={theme}>
