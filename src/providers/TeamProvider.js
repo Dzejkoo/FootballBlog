@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useReducer } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 
 export const TeamContext = React.createContext({
   filterPlayers: () => {},

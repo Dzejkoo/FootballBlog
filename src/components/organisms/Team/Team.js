@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ViewWrapper, Wrapper, LoadingWrapper } from './Team.styles';
+import { ViewWrapper, Wrapper } from './Team.styles';
 import { Title } from '../../atoms/Title/Title.styles';
 import { PlayerCard } from '../../moleculas/PlayerCard/PlayerCard';
 import { FormPlayer } from '../../moleculas/FormPlayer/FormPlayer';

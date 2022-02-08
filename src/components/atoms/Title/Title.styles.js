@@ -5,7 +5,7 @@ export const Title = styled.h2`
   margin-left: 30px;
   margin-bottom: 12px;
   font-weight: 600;
-  font-size: ${({ theme }) => theme.fontSize.xxl};
+  font-size: ${({ theme }) => theme.fontSize.xl};
   background-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.black};
   padding: 7px 15px;
