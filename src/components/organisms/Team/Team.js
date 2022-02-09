@@ -6,7 +6,6 @@ import { FormPlayer } from '../../moleculas/FormPlayer/FormPlayer';
 import { TeamContext } from '../../../providers/TeamProvider';
 
 export const Team = ({ state: { post } }) => {
-  console.log(post);
   const { filterPlayers, searchPhrase, getMatchingPlayers } = useContext(TeamContext);
   const matchedPlayers = getMatchingPlayers(post);
   const filtereedPlayers = filterPlayers(post);

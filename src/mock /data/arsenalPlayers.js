@@ -275,19 +275,7 @@ export const arsenalPlayers = [
     citizenship: 'France',
     numberShirt: '9',
   },
-  {
-    id: '22',
-    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Aubameyang.png?raw=true',
-    name: {
-      fullName: 'Pierre-Emerick Aubameyang',
-      firstName: 'Pierre-Emerick',
-      lastName: 'Aubameyang',
-    },
-    position: 'Forward',
-    age: '32',
-    citizenship: "FrCote d'Ivoireance",
-    numberShirt: '14',
-  },
+
   {
     id: '23',
     image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Nketiah.png?raw=true',
