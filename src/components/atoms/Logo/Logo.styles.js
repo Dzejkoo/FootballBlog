@@ -1,14 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
-import { Navigation } from '../../moleculas/Navigation/Navigation';
-import logo from '../../../assets/images/logo/Arsenal-logo.png';
 
-const Wrapper = styled.div`
-  width: 90%;
-  margin: 20px auto;
-`;
-
-const LogoWrapper = styled.div`
+export const LogoWrapper = styled.div`
   display: flex;
   flex-direction: row;
   width: 90%;
@@ -17,7 +9,7 @@ const LogoWrapper = styled.div`
   transform: translateX(10px);
 `;
 
-const Arsenal = styled.div`
+export const Arsenal = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -45,19 +37,3 @@ const Arsenal = styled.div`
     }
   }
 `;
-
-export const Header = () => {
-  return (
-    <Wrapper>
-      <LogoWrapper>
-        <img src={logo} alt="Logo" />
-        <Arsenal>
-          <span>Arsenal</span>
-          <span>Arsenal</span>
-          <span>Arsenal</span>
-        </Arsenal>
-      </LogoWrapper>
-      <Navigation />
-    </Wrapper>
-  );
-};

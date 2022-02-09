@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Header } from '../organisms/Header/Header';
+import { Header } from '../moleculas/Header/Header';
 
 const Wrapper = styled.div``;
 
