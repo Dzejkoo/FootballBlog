@@ -4,11 +4,11 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './assets/styles/theme';
 import { GlobalStyle } from './assets/styles/globalStyle';
 import { Team } from './components/organisms/Team/Team';
-import { PickTeam } from './components/organisms/PickTeam/PickTeam';
 import TeamProvider from './providers/TeamProvider';
 import { MainTemplate } from './components/templates/MainTemplate';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Spinner from './components/atoms/Spinner/Spinner';
+import { News } from './components/organisms/News/News';
 
 const initialState = {
   loading: true,
@@ -57,7 +57,7 @@ export const App = () => {
           <TeamProvider>
             <Routes>
               <Route path="/" element={state.loading ? <Spinner /> : <Team state={state} />} />
-              <Route path="/pick-team" element={<PickTeam />} />
+              <Route path="/news" element={<News />} />
             </Routes>
           </TeamProvider>
         </MainTemplate>
