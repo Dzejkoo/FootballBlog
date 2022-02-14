@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 export const WrapperArticle = styled.div`
-  width: 650px;
+  max-width: 670px;
+  min-width: 300px;
   margin: 0 auto;
   background-color: ${({ theme }) => theme.colors.white};
   overflow-y: hidden;
+
   &.slide-enter {
     opacity: 0;
     position: absolute;
@@ -24,6 +26,7 @@ export const WrapperArticle = styled.div`
   }
 `;
 export const HeaderArticle = styled.div`
+  position: relative;
   img {
     width: 100%;
   }
@@ -51,9 +54,20 @@ export const Info = styled.p`
   color: ${({ theme }) => theme.colors.black};
 `;
 
-export const ShowMoreButton = styled.button`
+export const ShowMoreButton = styled.button.attrs()`
   cursor: pointer;
+  position: absolute;
   background-color: transparent;
   border: none;
   margin-left: auto;
+  right: 1.5%;
+  top: 93.5%;
+  transition: 1s ease-in-out;
+  svg {
+    fill: white;
+    transform: rotate(180deg);
+    &.active {
+      transform: rotate(0deg);
+    }
+  }
 `;
