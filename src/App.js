@@ -6,7 +6,7 @@ import { GlobalStyle } from './assets/styles/globalStyle';
 import { Team } from './components/organisms/Team/Team';
 import TeamProvider from './providers/TeamProvider';
 import { MainTemplate } from './components/templates/MainTemplate';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Spinner from './components/atoms/Spinner/Spinner';
 import { News } from './components/organisms/News/News';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
@@ -58,7 +58,7 @@ export const App = () => {
       <MainTemplate>
         <TeamProvider>
           <TransitionGroup>
-            <CSSTransition key={location.key} classNames="slide" timeout={300}>
+            <CSSTransition key={location.key} classNames="slide" timeout={350}>
               <Routes>
                 <Route path="/" element={state.loading ? <Spinner /> : <Team state={state} />} />
                 <Route path="/news" element={<News />} />

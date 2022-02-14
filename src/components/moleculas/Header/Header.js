@@ -5,7 +5,7 @@ import { Logo } from '../../atoms/Logo/Logo';
 
 const Wrapper = styled.div`
   width: 90%;
-  margin: 20px auto;
+  margin: 20px 0;
 `;
 
 export const Header = () => {

@@ -20,4 +20,18 @@ export const ViewWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  &.slide-enter {
+    opacity: 0;
+  }
+  &.slide-enter-active {
+    opacity: 1;
+    transition: opacity 350ms ease-in-out;
+  }
+  &.slide-exit {
+    opacity: 0;
+  }
+  &.slide-exit-active {
+    opacity: 0;
+    transition: opacity 350ms ease-in-out;
+  }
 `;
