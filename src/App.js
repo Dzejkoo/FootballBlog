@@ -6,9 +6,10 @@ import { GlobalStyle } from './assets/styles/globalStyle';
 import { Team } from './components/organisms/Team/Team';
 import TeamProvider from './providers/TeamProvider';
 import { MainTemplate } from './components/templates/MainTemplate';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Spinner from './components/atoms/Spinner/Spinner';
 import { News } from './components/organisms/News/News';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const initialState = {
   loading: true,
@@ -49,19 +50,23 @@ export const App = () => {
         dispatch({ type: 'FETCH_ERROR' });
       });
   }, []);
+
+  const location = useLocation();
   return (
-    <Router>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <MainTemplate>
-          <TeamProvider>
-            <Routes>
-              <Route path="/" element={state.loading ? <Spinner /> : <Team state={state} />} />
-              <Route path="/news" element={<News />} />
-            </Routes>
-          </TeamProvider>
-        </MainTemplate>
-      </ThemeProvider>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <MainTemplate>
+        <TeamProvider>
+          <TransitionGroup>
+            <CSSTransition key={location.key} classNames="slide" timeout={300}>
+              <Routes>
+                <Route path="/" element={state.loading ? <Spinner /> : <Team state={state} />} />
+                <Route path="/news" element={<News />} />
+              </Routes>
+            </CSSTransition>
+          </TransitionGroup>
+        </TeamProvider>
+      </MainTemplate>
+    </ThemeProvider>
   );
 };
