@@ -1,4 +1,28 @@
 import styled from 'styled-components';
+import { theme } from '../../../../assets/styles/theme';
+
+export const injuredCheck = ({ injured }) => {
+  if (injured) {
+    return theme.colors.logoRed;
+  } else {
+    return theme.colors.green;
+  }
+};
+export const WrapperContent = styled.div``;
+export const PlayerName = styled.h3`
+  font-weight: 300;
+  position: relative;
+  &::after {
+    content: '';
+    width: 100%;
+    height: 60%;
+    position: absolute;
+    bottom: -10%;
+    opacity: 30%;
+    left: 0;
+    background-color: ${(injured) => injuredCheck(injured)};
+  }
+`;
 
 export const WrapperArticle = styled.div`
   max-width: 670px;
@@ -43,11 +67,13 @@ export const DataPublished = styled.span`
   font-size: ${({ theme }) => theme.fontSize.m};
   color: ${({ theme }) => theme.colors.black};
 `;
-export const Category = styled.span`
+export const Category = styled.h2`
   letter-spacing: -5%;
   text-transform: uppercase;
   font-size: ${({ theme }) => theme.fontSize.ml};
   font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0;
   margin-left: auto;
 `;
 export const Info = styled.p`
@@ -60,8 +86,8 @@ export const ShowMoreButton = styled.button.attrs()`
   background-color: transparent;
   border: none;
   margin-left: auto;
-  right: 1.5%;
-  top: 93.5%;
+  right: 10px;
+  bottom: 5px;
   transition: 1s ease-in-out;
   svg {
     fill: white;
