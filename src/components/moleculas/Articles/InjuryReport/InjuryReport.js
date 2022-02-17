@@ -1,18 +1,7 @@
 import React from 'react';
-import {
-  WrapperArticle,
-  HeaderArticle,
-  HeaderArticleInfo,
-  DataPublished,
-  Category,
-  Info,
-  ShowMoreButton,
-  WrapperContent,
-  PlayerName,
-} from './InjuryReport.styles';
-import { ReactComponent as SvgIcon } from '../../../../assets/images/icon/showmore-arrow.svg';
+import { WrapperArticle, WrapperContent, PlayerName, PlayerInfo } from './InjuryReport.styles';
 import useCollapse from 'react-collapsed';
-import styled from 'styled-components';
+import { HeaderNews } from '../../../atoms/HeaderNews/HeaderNews';
 
 const data = {
   category: 'injury report',
@@ -37,44 +26,23 @@ const data = {
   ],
 };
 
-const PlayerInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  /* justify-content: flex-end; */
-  align-items: flex-start;
-  p {
-    margin-left: 20px;
-    margin-top: 0;
-  }
-`;
-
 export const InjuryReport = () => {
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
   return (
     <WrapperArticle>
-      <HeaderArticle>
-        <img src="https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/Aresnal-header-photo.jpeg?raw=true" />
-        <HeaderArticleInfo>
-          <DataPublished>{data.dataPublished}</DataPublished>
-          <Category>{data.category}</Category>
-          <Info>{data.text}</Info>
-          <ShowMoreButton {...getToggleProps()}>
-            <SvgIcon className={isExpanded ? 'active' : null} />
-          </ShowMoreButton>
-          <WrapperContent {...getCollapseProps()}>
-            <PlayerInfo className="content">
-              {data.articleData.map((player, i) => {
-                return [
-                  <PlayerName key={i} injured={player.injured}>
-                    {player.name}
-                  </PlayerName>,
-                  <p>{player.content}</p>,
-                ];
-              })}
-            </PlayerInfo>
-          </WrapperContent>
-        </HeaderArticleInfo>
-      </HeaderArticle>
+      <HeaderNews isExpanded={isExpanded} data={data} getToggleProps={getToggleProps} />
+      <WrapperContent {...getCollapseProps()}>
+        <PlayerInfo className="content">
+          {data.articleData.map((player, i) => {
+            return [
+              <PlayerName key={i} injured={player.injured}>
+                {player.name}
+              </PlayerName>,
+              <p>{player.content}</p>,
+            ];
+          })}
+        </PlayerInfo>
+      </WrapperContent>
     </WrapperArticle>
   );
 };
