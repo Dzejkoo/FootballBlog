@@ -5,6 +5,7 @@ export const theme = {
     black: '#434343',
     logoRed: '#B71515',
     orange: '#FDB913',
+    yellow: '#FFFE04',
     green: '#32CD32',
     defender: '#00FF87',
     midfielder: '#05F0FF',

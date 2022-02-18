@@ -1,5 +1,6 @@
 import React from 'react';
-import { WrapperArticle, WrapperContent, PlayerName, PlayerInfo } from './InjuryReport.styles';
+import { PlayerName, PlayerInfo } from './InjuryReport.styles';
+import { ArticleView, WrapperContent } from '../../../atoms/ArticleView/ArticleView.styles';
 import useCollapse from 'react-collapsed';
 import { HeaderNews } from '../../../atoms/HeaderNews/HeaderNews';
 
@@ -29,7 +30,7 @@ const data = {
 export const InjuryReport = () => {
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
   return (
-    <WrapperArticle>
+    <ArticleView>
       <HeaderNews isExpanded={isExpanded} data={data} getToggleProps={getToggleProps} />
       <WrapperContent {...getCollapseProps()}>
         <PlayerInfo className="content">
@@ -43,6 +44,6 @@ export const InjuryReport = () => {
           })}
         </PlayerInfo>
       </WrapperContent>
-    </WrapperArticle>
+    </ArticleView>
   );
 };

@@ -5,11 +5,11 @@ import { ReactComponent as SvgIcon } from '../../../assets/images/icon/showmore-
 export const HeaderNews = ({ isExpanded, data, getToggleProps }) => {
   return (
     <>
-      <HeaderArticle>
+      <HeaderArticle category={data.category}>
         <img src="https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/Aresnal-header-photo.jpeg?raw=true" />
         <HeaderArticleInfo>
           <DataPublished>{data.dataPublished}</DataPublished>
-          <Category>{data.category}</Category>
+          <Category category={data.category}>{data.category}</Category>
           <Info>{data.text}</Info>
         </HeaderArticleInfo>
       </HeaderArticle>
