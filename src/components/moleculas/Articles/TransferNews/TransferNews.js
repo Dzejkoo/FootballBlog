@@ -1,8 +1,8 @@
 import React from 'react';
 import useCollapse from 'react-collapsed';
-import { ArticleView, WrapperContent } from '../../../atoms/ArticleView/ArticleView.styles';
-import { HeaderNews } from '../../../atoms/HeaderNews/HeaderNews';
+import { ArticleTitle, ArticleView, WrapperContent, ArticleContent } from '../ArticleStyles/Article.styles';
 import styled from 'styled-components';
+import { HeaderNews } from '../../../atoms/HeaderNews/HeaderNews';
 
 const data = {
   category: 'transfer news',
@@ -27,19 +27,11 @@ const data = {
   ],
 };
 
-const Title = styled.h2`
-  width: 100%;
-  font-size: ${({ theme }) => theme.fontSize.xl};
-  margin-top: 0;
-`;
 const Content = styled.div`
   img {
     width: 250px;
     float: left;
     margin: 0 15px 15px 0;
-  }
-  p {
-    font-weight: 300;
   }
 `;
 
@@ -50,17 +42,17 @@ export const TransferNews = () => {
       <HeaderNews data={data} isExpanded={isExpanded} getToggleProps={getToggleProps} />
       <WrapperContent {...getCollapseProps()}>
         <Content className="content">
-          <Title>Gunners 'frontrunners' for AC Milan attacker</Title>
+          <ArticleTitle>Gunners 'frontrunners' for AC Milan attacker</ArticleTitle>
           <img src="https://i2-prod.football.london/incoming/article22785910.ece/ALTERNATES/s1200d/0_Thomas-Partey.jpg" />
-          <p>
+          <ArticleContent>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eros mauris, ultricies a magna sit amet, tempus luctus nunc. Suspendisse
             placerat quam eget porttitor convallis. Nulla blandit tristique.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eros
             mauris, ultricies a magna sit amet, tempus luctus nunc. Suspendisse placerat quam eget porttitor convallis. Nulla blandit tristique.
-          </p>
-          <p>
+          </ArticleContent>
+          <ArticleContent>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eros mauris, ultricies a magna sit amet, tempus luctus nunc. Suspendisse
             placerat quam
-          </p>
+          </ArticleContent>
         </Content>
       </WrapperContent>
     </ArticleView>

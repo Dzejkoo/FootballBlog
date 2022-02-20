@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
+export const ArticleTitle = styled.h2`
+  width: 100%;
+  font-size: ${({ theme }) => theme.fontSize.l};
+  margin-top: 20px;
+`;
+
+export const ArticleContent = styled.p`
+  font-weight: 300;
+  margin: 0;
+`;
+
 export const ArticleView = styled.div`
   max-width: 670px;
   position: relative;
@@ -12,5 +23,5 @@ export const ArticleView = styled.div`
 `;
 
 export const WrapperContent = styled.div`
-  padding: 10px;
+  padding: 0 20px 20px 20px;
 `;

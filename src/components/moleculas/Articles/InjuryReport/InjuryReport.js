@@ -1,6 +1,7 @@
 import React from 'react';
 import { PlayerName, PlayerInfo } from './InjuryReport.styles';
-import { ArticleView, WrapperContent } from '../../../atoms/ArticleView/ArticleView.styles';
+import { ArticleView, WrapperContent, ArticleContent } from '../ArticleStyles/Article.styles';
+
 import useCollapse from 'react-collapsed';
 import { HeaderNews } from '../../../atoms/HeaderNews/HeaderNews';
 
@@ -39,7 +40,7 @@ export const InjuryReport = () => {
               <PlayerName key={i} injured={player.injured}>
                 {player.name}
               </PlayerName>,
-              <p>{player.content}</p>,
+              <ArticleContent>{player.content}</ArticleContent>,
             ];
           })}
         </PlayerInfo>

@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   width: 100%;
-  padding: 40px 0 35px 0;
-  margin: 0 auto;
+  padding-left: 20px;
+  margin: 40px auto;
 `;
 
 export const StyledLink = styled(NavLink).attrs()`

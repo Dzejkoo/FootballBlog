@@ -10,7 +10,7 @@ const categoryCheck = ({ category }) => {
 export const HeaderArticleInfo = styled.div`
   font-weight: 300;
   line-height: 100%;
-  padding: 10px;
+  padding: 20px 20px 0 20px;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;

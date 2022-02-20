@@ -28,9 +28,4 @@ export const PlayerInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  p {
-    font-weight: 300;
-    margin-left: 20px;
-    margin-top: 0;
-  }
 `;
