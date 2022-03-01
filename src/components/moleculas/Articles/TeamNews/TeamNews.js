@@ -1,6 +1,6 @@
 import React from 'react';
 import useCollapse from 'react-collapsed';
-import { ArticleTitle, ArticleView, WrapperContent, ArticleContent } from '../ArticleStyles/Article.styles';
+import { ArticleTitle, ArticleView, ArticleContent, Content } from '../ArticleStyles/Article.styles';
 import { HeaderNews } from '../../../atoms/HeaderNews/HeaderNews';
 
 const data = {
@@ -31,16 +31,16 @@ export const TeamNews = () => {
   return (
     <ArticleView>
       <HeaderNews data={data} isExpanded={isExpanded} getToggleProps={getToggleProps} />
-      <WrapperContent {...getCollapseProps()}>
-        <div className="content">
+      <div {...getCollapseProps()}>
+        <Content className="content">
           <ArticleTitle>Arteta on the win, Martinelli's red and Holding</ArticleTitle>
           <ArticleContent>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eros mauris, ultricies a magna sit amet, Lorem ipsum dolor sit amet,
             consectetur adipiscing elit. Aenean eros mauris, ultricies a magna sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Aenean eros mauris, ultricies a magna sit amet,
           </ArticleContent>
-        </div>
-      </WrapperContent>
+        </Content>
+      </div>
     </ArticleView>
   );
 };

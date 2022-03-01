@@ -14,7 +14,7 @@ export const Team = ({ state: { post } }) => {
     <ViewWrapper>
       <FormPlayer name="Search" />
       {searchPhrase && matchedPlayers.length
-        ? matchedPlayers.map((playerData) => <PlayerCard playerData={playerData} />)
+        ? matchedPlayers.map((playerData, id) => <PlayerCard key={id} playerData={playerData} />)
         : Object.keys(filtereedPlayers).map((key) => {
             return (
               <Wrapper key={key}>

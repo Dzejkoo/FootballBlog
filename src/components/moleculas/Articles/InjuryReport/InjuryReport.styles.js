@@ -8,7 +8,6 @@ export const injuredCheck = ({ injured }) => {
     return theme.colors.green;
   }
 };
-
 export const PlayerName = styled.h3`
   font-weight: 300;
   position: relative;
@@ -28,4 +27,5 @@ export const PlayerInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding: 0 20px 20px 20px;
 `;

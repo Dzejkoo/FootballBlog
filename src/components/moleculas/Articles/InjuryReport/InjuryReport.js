@@ -1,6 +1,6 @@
 import React from 'react';
 import { PlayerName, PlayerInfo } from './InjuryReport.styles';
-import { ArticleView, WrapperContent, ArticleContent } from '../ArticleStyles/Article.styles';
+import { ArticleView, ArticleContent } from '../ArticleStyles/Article.styles';
 
 import useCollapse from 'react-collapsed';
 import { HeaderNews } from '../../../atoms/HeaderNews/HeaderNews';
@@ -33,7 +33,7 @@ export const InjuryReport = () => {
   return (
     <ArticleView>
       <HeaderNews isExpanded={isExpanded} data={data} getToggleProps={getToggleProps} />
-      <WrapperContent {...getCollapseProps()}>
+      <div {...getCollapseProps()}>
         <PlayerInfo className="content">
           {data.articleData.map((player, i) => {
             return [
@@ -44,7 +44,7 @@ export const InjuryReport = () => {
             ];
           })}
         </PlayerInfo>
-      </WrapperContent>
+      </div>
     </ArticleView>
   );
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 import useCollapse from 'react-collapsed';
-import { ArticleTitle, ArticleView, WrapperContent, ArticleContent } from '../ArticleStyles/Article.styles';
-import styled from 'styled-components';
+import { ArticleTitle, ArticleView, WrapperContent, ArticleContent, Content } from '../ArticleStyles/Article.styles';
 import { HeaderNews } from '../../../atoms/HeaderNews/HeaderNews';
 
 const data = {
@@ -27,20 +26,12 @@ const data = {
   ],
 };
 
-const Content = styled.div`
-  img {
-    width: 250px;
-    float: left;
-    margin: 0 15px 15px 0;
-  }
-`;
-
 export const TransferNews = () => {
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
   return (
     <ArticleView>
       <HeaderNews data={data} isExpanded={isExpanded} getToggleProps={getToggleProps} />
-      <WrapperContent {...getCollapseProps()}>
+      <div {...getCollapseProps()}>
         <Content className="content">
           <ArticleTitle>Gunners 'frontrunners' for AC Milan attacker</ArticleTitle>
           <img src="https://i2-prod.football.london/incoming/article22785910.ece/ALTERNATES/s1200d/0_Thomas-Partey.jpg" />
@@ -54,7 +45,7 @@ export const TransferNews = () => {
             placerat quam
           </ArticleContent>
         </Content>
-      </WrapperContent>
+      </div>
     </ArticleView>
   );
 };

@@ -22,6 +22,12 @@ export const ArticleView = styled.div`
   overflow-y: hidden;
 `;
 
-export const WrapperContent = styled.div`
+export const Content = styled.div`
   padding: 0 20px 20px 20px;
+  img {
+    width: 250px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
 `;
