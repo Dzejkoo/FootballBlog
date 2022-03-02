@@ -8,38 +8,40 @@ import { ArticlesSort } from '../../moleculas/Articles/ArtcilesSort/ArticlesSort
 
 const API_TOKEN = 'b177168089829f8761a0f8673e5430';
 const query = `{
-              allTeamNews {
-                titlePhoto {
-                  url
-                }
-                dataPublished
-                category
-                titleContent
-                content
+            allTeamNews {
+              titlePhoto {
+                url
               }
-              allTransferNews {
-                titlePhoto {
-                  url
-                }
-                dataPublished
-                category
-                titleContent
-                content
+              dataPublished
+              category
+              titleContent
+              content
+              headerText
+            }
+            allTransferNews {
+              titlePhoto {
+                url
               }
-              allInjuryReports {
-                titlePhoto {
-                  url
-                }
-                dataPublished
-                category
-                titleContent
-                injuredPlayerInfo {
-                  playerInfo
-                  playerName
-                  isInjured
-                }
+              dataPublished
+              category
+              titleContent
+              content
+              headerText
+            }
+            allInjuryReports {
+              titlePhoto {
+                url
               }
-            }`;
+              dataPublished
+              category
+              headerText
+              injuredPlayerInfo {
+                playerInfo
+                playerName
+                isInjured
+              }
+            }
+          }`;
 
 const initialState = {
   loading: true,
@@ -107,6 +109,7 @@ export const News = () => {
       })
       .catch((error) => dispath({ type: ACTION.ERROR, error: error }));
   }, []);
+  console.log(data);
 
   return <Wrapper>{loading ? <p>loading...</p> : error ? <p>{error}</p> : <ArticlesSort articlesData={data} />}</Wrapper>;
 };

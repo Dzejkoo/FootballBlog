@@ -3,15 +3,16 @@ import { HeaderArticleInfo, DataPublished, Category, Info, ShowMoreButton, Heade
 import { ReactComponent as SvgIcon } from '../../../assets/images/icon/showmore-arrow.svg';
 
 export const HeaderNews = ({ isExpanded, data, getToggleProps }) => {
-  const { category, dataPublished, titlePhoto, titleContent } = data;
+  console.log(data);
+  const { category, dataPublished, titlePhoto, headerText } = data;
   return (
     <>
       <HeaderArticle category={data.category}>
-        {/* <img src={url} alt="article" /> */}
+        {titlePhoto ? <img src={titlePhoto.url} alt="article" /> : null}
         <HeaderArticleInfo>
           <DataPublished>{dataPublished}</DataPublished>
           <Category category={category}>{category}</Category>
-          <Info>{titleContent}</Info>
+          <Info>{headerText}</Info>
         </HeaderArticleInfo>
       </HeaderArticle>
       <ShowMoreButton {...getToggleProps()}>

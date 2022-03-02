@@ -11,6 +11,7 @@ const artcilesCases = {
 };
 
 export const ArticlesSort = ({ articlesData }) => {
+  console.log(articlesData);
   return (
     <>
       {Object.keys(articlesData).map((key) => {
@@ -18,9 +19,9 @@ export const ArticlesSort = ({ articlesData }) => {
           case artcilesCases.INJURY_REPORT:
             return articlesData[key].map((article, i) => <InjuryReport key={i} articleData={article} />);
           case artcilesCases.TEAM_NEWS:
-            return <TeamNews articleData={articlesData[key]} />;
+            return articlesData[key].map((article, i) => <TeamNews key={i} articleData={article} />);
           case artcilesCases.TRANSFER_NEWS:
-            return <TransferNews articleData={articlesData[key]} />;
+            return articlesData[key].map((article, i) => <TransferNews key={i} articleData={article} />);
           default:
             return key;
         }

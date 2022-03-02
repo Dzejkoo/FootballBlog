@@ -26,19 +26,16 @@ const data = {
   ],
 };
 
-export const TeamNews = () => {
+export const TeamNews = ({ articleData }) => {
+  // const { titleContent, content } = articlesData;
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
   return (
     <ArticleView>
-      <HeaderNews data={data} isExpanded={isExpanded} getToggleProps={getToggleProps} />
+      <HeaderNews isExpanded={isExpanded} data={articleData} getToggleProps={getToggleProps} />
       <div {...getCollapseProps()}>
         <Content className="content">
-          <ArticleTitle>Arteta on the win, Martinelli's red and Holding</ArticleTitle>
-          <ArticleContent>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eros mauris, ultricies a magna sit amet, Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Aenean eros mauris, ultricies a magna sit amet, Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Aenean eros mauris, ultricies a magna sit amet,
-          </ArticleContent>
+          <ArticleTitle>{`titleContent`}</ArticleTitle>
+          <ArticleContent>{`content`}</ArticleContent>
         </Content>
       </div>
     </ArticleView>
