@@ -9,6 +9,7 @@ export const Team = ({ state: { post } }) => {
   const { filterPlayers, searchPhrase, getMatchingPlayers } = useContext(TeamContext);
   const matchedPlayers = getMatchingPlayers(post);
   const filtereedPlayers = filterPlayers(post);
+  console.log(filtereedPlayers);
 
   return (
     <ViewWrapper>

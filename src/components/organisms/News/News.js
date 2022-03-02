@@ -2,46 +2,47 @@ import React, { useEffect, useReducer } from 'react';
 import { InjuryReport } from '../../moleculas/Articles/InjuryReport/InjuryReport';
 import { TransferNews } from '../../moleculas/Articles/TransferNews/TransferNews';
 import { TeamNews } from '../../moleculas/Articles/TeamNews/TeamNews';
-import { Plock } from 'react-plock';
 import { Wrapper } from './News.styles';
 import axios from 'axios';
+import { ArticlesSort } from '../../moleculas/Articles/ArtcilesSort/ArticlesSort';
 
 const API_TOKEN = 'b177168089829f8761a0f8673e5430';
 const query = `{
-            allTeamNews{
-              titlePhoto{
-                url
+              allTeamNews {
+                titlePhoto {
+                  url
+                }
+                dataPublished
+                category
+                titleContent
+                content
               }
-              dataPublished
-              category
-              titleContent
-              content
-            }
-            allTransferNews{
-              titlePhoto{
-                url
+              allTransferNews {
+                titlePhoto {
+                  url
+                }
+                dataPublished
+                category
+                titleContent
+                content
               }
-              dataPublished
-              category
-              titleContent
-              content
-            }
-            allInjuryReports{
-              titlePhoto{
-                url
+              allInjuryReports {
+                titlePhoto {
+                  url
+                }
+                dataPublished
+                category
+                titleContent
+                injuredPlayerInfo {
+                  playerInfo
+                  playerName
+                  isInjured
+                }
               }
-              dataPublished
-              category
-              titleContent
-              isinjured
-              playername
-              playerInfo
-              
-            }
-          }`;
+            }`;
 
 const initialState = {
-  loading: false,
+  loading: true,
   error: null,
   articles: {},
 };
@@ -86,7 +87,6 @@ export const News = () => {
     error,
     articles: { data },
   } = state;
-  console.log(data);
 
   useEffect(() => {
     dispath({ type: ACTION.CALL_API });
@@ -102,30 +102,11 @@ export const News = () => {
           },
         }
       )
-      .then((response) => dispath({ type: ACTION.SUCCESS, data: response }))
+      .then((response) => {
+        dispath({ type: ACTION.SUCCESS, data: response.data });
+      })
       .catch((error) => dispath({ type: ACTION.ERROR, error: error }));
   }, []);
 
-  return (
-    <Wrapper>
-      {/* {console.log(data)} */}
-      {loading ? (
-        <p>loading...</p>
-      ) : error ? (
-        <p>{error}</p>
-      ) : (
-        <Plock nColumns={2}>
-          <InjuryReport />
-          <TransferNews />
-          <TeamNews />
-          <InjuryReport />
-          <TransferNews />
-          <TeamNews />
-          <InjuryReport />
-          <TransferNews />
-          <TeamNews />
-        </Plock>
-      )}
-    </Wrapper>
-  );
+  return <Wrapper>{loading ? <p>loading...</p> : error ? <p>{error}</p> : <ArticlesSort articlesData={data} />}</Wrapper>;
 };
