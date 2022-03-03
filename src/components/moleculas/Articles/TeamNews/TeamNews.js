@@ -27,15 +27,15 @@ const data = {
 };
 
 export const TeamNews = ({ articleData }) => {
-  // const { titleContent, content } = articlesData;
+  const { titleContent, content } = articleData;
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
   return (
     <ArticleView>
       <HeaderNews isExpanded={isExpanded} data={articleData} getToggleProps={getToggleProps} />
       <div {...getCollapseProps()}>
         <Content className="content">
-          <ArticleTitle>{`titleContent`}</ArticleTitle>
-          <ArticleContent>{`content`}</ArticleContent>
+          <ArticleTitle>{titleContent}</ArticleTitle>
+          <ArticleContent>{content}</ArticleContent>
         </Content>
       </div>
     </ArticleView>
