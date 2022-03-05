@@ -35,3 +35,9 @@ export const ViewWrapper = styled.div`
     transition: opacity 350ms ease-in-out;
   }
 `;
+
+export const NonFound = styled.div`
+  margin: 0 auto;
+  padding: 50px;
+  text-transform: uppercase;
+`;

@@ -1,12 +1,10 @@
 import React, { useEffect, useReducer } from 'react';
-import { InjuryReport } from '../../moleculas/Articles/InjuryReport/InjuryReport';
-import { TransferNews } from '../../moleculas/Articles/TransferNews/TransferNews';
-import { TeamNews } from '../../moleculas/Articles/TeamNews/TeamNews';
 import { Wrapper } from './News.styles';
 import axios from 'axios';
 import { ArticlesSort } from '../../moleculas/Articles/ArtcilesSort/ArticlesSort';
 
 const API_TOKEN = 'b177168089829f8761a0f8673e5430';
+
 const query = `{
   allTeamNews {
     titlePhoto {

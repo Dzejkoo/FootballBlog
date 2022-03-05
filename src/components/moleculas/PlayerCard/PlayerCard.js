@@ -7,7 +7,7 @@ export const PlayerCard = ({ playerData: { name, position, image, numberShirt } 
     <WrapperCard position={position}>
       <PlayerName name={name} />
       <ShirtNumber>{numberShirt}</ShirtNumber>
-      <img src={image} alt="Player photo" />
+      <img src={image} alt="Player" />
     </WrapperCard>
   );
 };

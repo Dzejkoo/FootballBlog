@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ViewWrapper, Wrapper } from './Team.styles';
+import { ViewWrapper, Wrapper, NonFound } from './Team.styles';
 import { Title } from '../../atoms/Title/Title.styles';
 import { PlayerCard } from '../../moleculas/PlayerCard/PlayerCard';
 import { FormPlayer } from '../../moleculas/FormPlayer/FormPlayer';
@@ -9,14 +9,15 @@ export const Team = ({ state: { post } }) => {
   const { filterPlayers, searchPhrase, getMatchingPlayers } = useContext(TeamContext);
   const matchedPlayers = getMatchingPlayers(post);
   const filtereedPlayers = filterPlayers(post);
-  console.log(filtereedPlayers);
 
   return (
     <ViewWrapper>
       <FormPlayer name="Search" />
-      {searchPhrase && matchedPlayers.length
-        ? matchedPlayers.map((playerData, id) => <PlayerCard key={id} playerData={playerData} />)
-        : Object.keys(filtereedPlayers).map((key) => {
+      {matchedPlayers.length ? (
+        searchPhrase && matchedPlayers.length ? (
+          matchedPlayers.map((playerData, id) => <PlayerCard key={id} playerData={playerData} />)
+        ) : (
+          Object.keys(filtereedPlayers).map((key) => {
             return (
               <Wrapper key={key}>
                 <Title>{key}</Title>
@@ -25,7 +26,11 @@ export const Team = ({ state: { post } }) => {
                 })}
               </Wrapper>
             );
-          })}
+          })
+        )
+      ) : (
+        <NonFound>Non found</NonFound>
+      )}
     </ViewWrapper>
   );
 };

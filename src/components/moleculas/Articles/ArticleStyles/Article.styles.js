@@ -8,6 +8,7 @@ export const ArticleTitle = styled.h2`
 
 export const ArticleContent = styled.p`
   font-weight: 300;
+  padding-bottom: 10px;
   margin: 0;
 `;
 

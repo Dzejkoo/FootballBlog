@@ -55,6 +55,7 @@ export const ShowMoreButton = styled.button.attrs()`
 export const Info = styled.p`
   color: ${({ theme }) => theme.colors.black};
   font-size: ${({ theme }) => theme.fontSize.ml};
+  margin-bottom: 20px;
 `;
 
 export const HeaderArticle = styled.div`
