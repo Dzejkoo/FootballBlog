@@ -10,19 +10,23 @@ export const Team = ({ state: { post } }) => {
   const matchedPlayers = getMatchingPlayers(post);
   const filtereedPlayers = filterPlayers(post);
 
+  function openModal() {
+    console.log('Click');
+  }
+
   return (
     <ViewWrapper>
       <FormPlayer name="Search" />
       {matchedPlayers.length ? (
         searchPhrase && matchedPlayers.length ? (
-          matchedPlayers.map((playerData, id) => <PlayerCard key={id} playerData={playerData} />)
+          matchedPlayers.map((playerData, id) => <PlayerCard key={id} id={id} playerData={playerData} />)
         ) : (
           Object.keys(filtereedPlayers).map((key) => {
             return (
               <Wrapper key={key}>
                 <Title>{key}</Title>
-                {filtereedPlayers[key].map((playerData) => {
-                  return <PlayerCard key={playerData.id} playerData={playerData} />;
+                {filtereedPlayers[key].map((playerData, id) => {
+                  return <PlayerCard key={id} id={id} playerData={playerData} />;
                 })}
               </Wrapper>
             );

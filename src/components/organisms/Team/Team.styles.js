@@ -40,4 +40,5 @@ export const NonFound = styled.div`
   margin: 0 auto;
   padding: 50px;
   text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.black};
 `;

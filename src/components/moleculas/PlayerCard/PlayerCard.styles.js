@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 import bgcImages from '../../../assets/images/bgcCard';
+import Modal from 'react-modal';
+Modal.setAppElement('body');
+
+export const StyledModal = styled(Modal)`
+  background-color: black;
+`;
 
 const positionTheme = ({ position }) => {
   if (position === 'Goalkeeper') return bgcImages.bgcGoalkeepers;
@@ -17,6 +23,7 @@ export const WrapperCard = styled.div`
   box-shadow: 0px 4px 5px 0px rgba(66, 68, 90, 0.3);
   overflow: hidden;
   position: relative;
+  cursor: pointer;
   img {
     width: 100%;
   }
