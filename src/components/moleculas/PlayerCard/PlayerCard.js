@@ -15,10 +15,9 @@ export const PlayerCard = ({ playerData: { name, position, image, numberShirt } 
         <ShirtNumber>{numberShirt}</ShirtNumber>
         <img src={image} alt="Player" />
       </WrapperCard>
-      <StyledModal isOpen={isOpen} onRequestClose={toggleModal}>
+      <StyledModal position={position} isOpen={isOpen} onRequestClose={toggleModal}>
         <div>
           <PlayerName name={name} />
-          <ShirtNumber>{numberShirt}</ShirtNumber>
           <img src={image} alt="Player" />
         </div>
         <button onClick={toggleModal}>Close</button>
