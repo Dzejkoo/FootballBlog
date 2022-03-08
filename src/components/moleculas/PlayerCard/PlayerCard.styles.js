@@ -15,10 +15,14 @@ export const StyledModal = styled(Modal)`
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 360px;
-  margin: 15px 30px;
+  box-shadow: 0px 4px 5px 0px rgba(66, 68, 90, 0.3);
+  overflow: hidden;
+  position: relative;
+  background-color: ${({ theme }) => theme.colors.white};
+`;
+export const WrapperModalCard = styled.div`
   background-image: url(${(position) => positionTheme(position)});
   background-size: cover;
-  box-shadow: 0px 4px 5px 0px rgba(66, 68, 90, 0.3);
   overflow: hidden;
   position: relative;
   img {

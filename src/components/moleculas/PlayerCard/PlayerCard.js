@@ -1,9 +1,32 @@
 import React, { useState } from 'react';
 import { PlayerName } from '../../atoms/PlayerName/PlayerName';
-import { WrapperCard, ShirtNumber, StyledModal } from './PlayerCard.styles';
+import { WrapperCard, ShirtNumber, StyledModal, WrapperModalCard } from './PlayerCard.styles';
 import styled from 'styled-components';
 
-export const PlayerCard = ({ playerData: { name, position, image, numberShirt } }, props) => {
+const PlayerProfile = styled.h2`
+  text-transform: uppercase;
+  font-size: ${({ theme }) => theme.fontSize.l};
+  font-weight: 500;
+  padding: 10px 0;
+  margin: 0 15px;
+  position: relative;
+  &::before {
+    content: '';
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 1px;
+    background-color: ${({ theme }) => theme.colors.grey};
+  }
+`;
+
+const WrapperProfile = styled.div`
+  background-color: ${({ theme }) => theme.colors.white};
+`;
+
+export const PlayerCard = ({ playerData: { name, position, image, numberShirt } }) => {
   const [isOpen, setIsOpen] = useState(false);
   function toggleModal() {
     setIsOpen(!isOpen);
@@ -16,11 +39,13 @@ export const PlayerCard = ({ playerData: { name, position, image, numberShirt } 
         <img src={image} alt="Player" />
       </WrapperCard>
       <StyledModal position={position} isOpen={isOpen} onRequestClose={toggleModal}>
-        <div>
-          <PlayerName name={name} />
+        <WrapperModalCard position={position}>
+          <PlayerName isBig name={name} />
           <img src={image} alt="Player" />
-        </div>
-        <button onClick={toggleModal}>Close</button>
+        </WrapperModalCard>
+        <WrapperProfile>
+          <PlayerProfile>Player Profile</PlayerProfile>
+        </WrapperProfile>
       </StyledModal>
     </>
   );
