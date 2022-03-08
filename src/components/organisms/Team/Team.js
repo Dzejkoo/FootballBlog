@@ -10,10 +10,6 @@ export const Team = ({ state: { post } }) => {
   const matchedPlayers = getMatchingPlayers(post);
   const filtereedPlayers = filterPlayers(post);
 
-  function openModal() {
-    console.log('Click');
-  }
-
   return (
     <ViewWrapper>
       <FormPlayer name="Search" />
