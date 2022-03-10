@@ -18,7 +18,7 @@ export const InjuryReport = ({ articleData }) => {
               <PlayerName key={i} injured={player.isInjured}>
                 {player.playerName}
               </PlayerName>,
-              <ArticleContent>{player.playerInfo}</ArticleContent>,
+              <ArticleContent key={i}>{player.playerInfo}</ArticleContent>,
             ];
           })}
         </PlayerInfo>

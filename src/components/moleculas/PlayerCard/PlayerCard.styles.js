@@ -14,16 +14,31 @@ export const StyledModal = styled(Modal)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 360px;
+  max-width: 400px;
   box-shadow: 0px 4px 5px 0px rgba(66, 68, 90, 0.3);
-  overflow: hidden;
   position: relative;
   background-color: ${({ theme }) => theme.colors.white};
+  button {
+    position: absolute;
+    border: none;
+    transform: translate(-60%, -40%);
+    background-color: transparent;
+    padding: 0;
+    top: 0%;
+    left: 100%;
+    cursor: pointer;
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
 `;
 export const WrapperModalCard = styled.div`
   background-image: url(${(position) => positionTheme(position)});
   background-size: cover;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   position: relative;
   img {
     width: 100%;

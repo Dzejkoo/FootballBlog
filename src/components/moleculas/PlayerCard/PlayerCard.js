@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { PlayerName } from '../../atoms/PlayerName/PlayerName';
 import { WrapperCard, ShirtNumber, StyledModal, WrapperModalCard } from './PlayerCard.styles';
+import { WrapperProfileCard } from '../WrapperProfileCard/WrapperProfileCard';
+import { ReactComponent as CloseIcon } from '../../../assets/images/icon/icon-cancel.svg';
 import styled from 'styled-components';
 
 const PlayerProfile = styled.h2`
   text-transform: uppercase;
   font-size: ${({ theme }) => theme.fontSize.l};
   font-weight: 500;
-  padding: 10px 0;
-  margin: 0 15px;
+  padding: 15px 0;
+  margin: 0 20px;
   position: relative;
   &::before {
     content: '';
@@ -26,7 +28,7 @@ const WrapperProfile = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
 `;
 
-export const PlayerCard = ({ playerData: { name, position, image, numberShirt } }) => {
+export const PlayerCard = ({ playerData: { name, position, image, numberShirt, born, debut, citizenship } }) => {
   const [isOpen, setIsOpen] = useState(false);
   function toggleModal() {
     setIsOpen(!isOpen);
@@ -45,7 +47,11 @@ export const PlayerCard = ({ playerData: { name, position, image, numberShirt } 
         </WrapperModalCard>
         <WrapperProfile>
           <PlayerProfile>Player Profile</PlayerProfile>
+          <WrapperProfileCard position={position} numberShirt={numberShirt} born={born} debut={debut} citizenship={citizenship} />
         </WrapperProfile>
+        <button onClick={() => toggleModal()}>
+          <CloseIcon />
+        </button>
       </StyledModal>
     </>
   );

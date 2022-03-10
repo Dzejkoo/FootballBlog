@@ -19,7 +19,6 @@ export const TransferNews = ({ articleData }) => {
           <ArticleTitle>{titleContent}</ArticleTitle>
           <img src={url} alt="article" />
           <ArticleContent>{content}</ArticleContent>
-          <ArticleContent>{content}</ArticleContent>
         </Content>
       </div>
     </ArticleView>
