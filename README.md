@@ -1,4 +1,4 @@
-![https://raw.githubusercontent.com/Dzejkoo/FootballBlog/main/src/assets/images/github/Team.png]
+![FootbalBlog](https://raw.githubusercontent.com/Dzejkoo/FootballBlog/main/src/assets/images/github/Team.png)
 
 # FootballBlog 💬
 
