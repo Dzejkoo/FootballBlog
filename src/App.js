@@ -10,6 +10,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Spinner from './components/atoms/Spinner/Spinner';
 import { News } from './components/organisms/News/News';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { Matches } from './components/organisms/Matches/Matches';
 
 const initialState = {
   loading: true,
@@ -62,6 +63,7 @@ export const App = () => {
               <Routes>
                 <Route path="/" element={state.loading ? <Spinner /> : <Team state={state} />} />
                 <Route path="/news" element={<News />} />
+                <Route path="/matches" element={<Matches />} />
               </Routes>
             </CSSTransition>
           </TransitionGroup>

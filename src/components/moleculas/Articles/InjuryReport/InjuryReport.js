@@ -5,7 +5,7 @@ import { ArticleView, ArticleContent } from '../ArticleStyles/Article.styles';
 import useCollapse from 'react-collapsed';
 import { HeaderNews } from '../../../atoms/HeaderNews/HeaderNews';
 
-export const InjuryReport = ({ articleData }) => {
+export const InjuryReport = ({ articleData }, key) => {
   const { injuredPlayerInfo } = articleData;
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
   return (
@@ -18,7 +18,7 @@ export const InjuryReport = ({ articleData }) => {
               <PlayerName key={i} injured={player.isInjured}>
                 {player.playerName}
               </PlayerName>,
-              <ArticleContent key={i}>{player.playerInfo}</ArticleContent>,
+              <ArticleContent key={key}>{player.playerInfo}</ArticleContent>,
             ];
           })}
         </PlayerInfo>

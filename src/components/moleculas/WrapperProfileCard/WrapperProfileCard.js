@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const ProfileInfo = styled.div`
@@ -8,7 +8,6 @@ const ProfileInfo = styled.div`
     padding: 8px 0px;
     margin: 0;
     color: ${({ theme }) => theme.colors.black};
-    /* float: right; */
     &:nth-child(1) {
       padding: 0 0 8px 0;
     }
