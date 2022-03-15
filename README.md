@@ -1,5 +1,18 @@
 # FootballBlog 💬
 
+Single page aplication bulid with React. Allows to add three form of article (Injury Report, News and Transfer News), you can also check basic information about Arsenal players. 
+
+# Technologies
+
+- [React](https://reactjs.org/)
+- [React Router](https://v5.reactrouter.com/)
+- [Styled Components](https://styled-components.com/)
+- [Axios](https://axios-http.com/)
+- [GraphQl](https://graphcdn.io/)
+- [Webpack](https://webpack.js.org/)
+
+# Setup 
+
 ### `npm start`
 
 Runs the app in the development mode.\
