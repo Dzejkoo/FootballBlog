@@ -1,3 +1,5 @@
+![https://raw.githubusercontent.com/Dzejkoo/FootballBlog/main/src/assets/images/github/Team.png]
+
 # FootballBlog 💬
 
 Single page aplication bulid with React. Allows to add three form of article (Injury Report, News and Transfer News), you can also check basic information about Arsenal players. 
