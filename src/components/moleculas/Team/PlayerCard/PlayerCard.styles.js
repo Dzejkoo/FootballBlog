@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import bgcImages from '../../../assets/images/bgcCard';
+import bgcImages from '../../../../assets/images/bgcCard';
 import Modal from 'react-modal';
 Modal.setAppElement('body');
 

@@ -10,15 +10,15 @@ Single page aplication bulid with React. Allows to add three form of article (In
 - [React Router](https://v5.reactrouter.com/)
 - [Styled Components](https://styled-components.com/)
 - [Axios](https://axios-http.com/)
-- [GraphQl](https://graphcdn.io/)
+- [GraphQL](https://graphcdn.io/)
 - [Webpack](https://webpack.js.org/)
+
+
+# Bulid with
+
+- [DatoCMS](https://www.datocms.com/)
+- [mockAPI](https://mswjs.io/)
 
 # Setup 
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Clone this repo to your desktop and run npm install to install all the dependencies. Run the app by npm start.

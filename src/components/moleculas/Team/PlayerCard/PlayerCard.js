@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { PlayerName } from '../../atoms/PlayerName/PlayerName';
+import { PlayerName } from '../../../atoms/PlayerName/PlayerName';
 import { WrapperCard, ShirtNumber, StyledModal, WrapperModalCard } from './PlayerCard.styles';
 import { WrapperProfileCard } from '../WrapperProfileCard/WrapperProfileCard';
-import { ReactComponent as CloseIcon } from '../../../assets/images/icon/icon-cancel.svg';
+import { ReactComponent as CloseIcon } from '../../../../assets/images/icon/icon-cancel.svg';
 import styled from 'styled-components';
 
 const PlayerProfile = styled.h2`
