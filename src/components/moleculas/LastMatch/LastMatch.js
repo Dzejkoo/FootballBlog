@@ -1,25 +1,16 @@
 import React from 'react';
-import { LastMatchWrapper, Result, TeamWrapper, TeamLogo, TeamName, ScoredGoal, Separate } from './LastMatch.styles';
+import { LastMatchWrapper, Result, Separate } from './LastMatch.styles';
 import { InfoMatch } from '../../atoms/InfoMatch/InfoMatch';
-import ArsenalLogo from '../../../assets/images/logo/Arsenal-logo.png';
-import WatfordLogo from '../../../assets/images/logo/Watford-logo.png';
+import { TeamDescription } from '../../atoms/TeamDescription/TeamDescription';
 
-export const LastMatch = () => {
+export const LastMatch = ({ data }) => {
   return (
     <LastMatchWrapper>
       <InfoMatch />
       <Result>
-        <TeamWrapper>
-          <TeamLogo src={WatfordLogo} alt="Watford logo" />
-          <TeamName>Watford</TeamName>
-          <ScoredGoal>2</ScoredGoal>
-        </TeamWrapper>
+        <TeamDescription data={data} />
         <Separate>-</Separate>
-        <TeamWrapper>
-          <ScoredGoal>3 </ScoredGoal>
-          <TeamName>Arsenal</TeamName>
-          <TeamLogo src={ArsenalLogo} alt="Watford logo" />
-        </TeamWrapper>
+        <TeamDescription isEnemy data={data} />
       </Result>
     </LastMatchWrapper>
   );
