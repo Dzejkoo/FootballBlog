@@ -18,9 +18,10 @@ export const ScoredGoal = styled.span`
   font-size: 36px;
 `;
 
-export const TeamDescription = ({ isEnemy, data: { homeTeam, awayTeam } }) => {
+export const TeamDescription = ({ isEnemy, data: { homeTeam, awayTeam, goalesAwayTeam, goalsHomeTeam } }) => {
   return (
     <TeamDescriptionWrapper isEnemy={isEnemy}>
+      <ScoredGoal>{isEnemy ? goalesAwayTeam : goalsHomeTeam}</ScoredGoal>
       <TeamName>{isEnemy ? awayTeam.team_name : homeTeam.team_name}</TeamName>
     </TeamDescriptionWrapper>
   );
