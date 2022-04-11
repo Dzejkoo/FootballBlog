@@ -5,7 +5,8 @@ import { ArticlesSort } from '../../moleculas/Articles/ArtcilesSort/ArticlesSort
 
 const API_TOKEN = 'b177168089829f8761a0f8673e5430';
 
-const query = `{
+const query = `
+{
   allTeamNews {
     titlePhoto {
       url

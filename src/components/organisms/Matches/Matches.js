@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
 import { LastMatch } from '../../moleculas/LastMatch/LastMatch';
+import { RestMatch } from '../../moleculas/RestMatch/RestMatch';
 
 const data = [
   {
     homeTeam: {
-      team_name: 'Arsenal',
+      team_name: 'Crystal Palace',
     },
     event_date: '2022-03-19T12:30:00+00:00',
     goalesAwayTeam: 1,
     goalsHomeTeam: 0,
     awayTeam: {
-      team_name: 'Watford',
+      team_name: 'Arsenal',
     },
     venue: 'Villa Parkt',
   },
@@ -29,11 +31,13 @@ const data = [
 ];
 
 export const Matches = () => {
-  fetch('https://v2.api-football.com/fixtures/team/42/last/20', {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': '6ea31e09a7123bebeae57afc5ef0651e',
-    },
+  useEffect(() => {
+    fetch('https://v2.api-football.com/fixtures/team/42/last/20', {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': '6ea31e09a7123bebeae57afc5ef0651e',
+      },
+    });
   });
   // .then((res) => res.json())
   // .then((data) => console.log(data));

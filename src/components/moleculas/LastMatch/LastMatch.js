@@ -1,17 +1,13 @@
 import React from 'react';
-import { LastMatchWrapper, Result, Separate } from './LastMatch.styles';
+import { MatchWrapper } from './LastMatch.styles';
 import { InfoMatch } from '../../atoms/InfoMatch/InfoMatch';
-import { TeamDescription } from '../../atoms/TeamDescription/TeamDescription';
+import { Result } from '../../moleculas/Result/Result';
 
 export const LastMatch = ({ data }) => {
   return (
-    <LastMatchWrapper>
-      <InfoMatch />
-      <Result>
-        <TeamDescription data={data} />
-        <Separate>-</Separate>
-        <TeamDescription isEnemy data={data} />
-      </Result>
-    </LastMatchWrapper>
+    <MatchWrapper>
+      <InfoMatch isHeader data={data} />
+      <Result isHeader data={data} />
+    </MatchWrapper>
   );
 };
