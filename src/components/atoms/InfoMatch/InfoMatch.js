@@ -1,12 +1,15 @@
 import React from 'react';
-import { InfoMatchWrapper, DateMatch, LocationMatch, PLLogo } from './InfoMatch.styles';
+import { InfoMatchWrapper, DateMatch, PLLogo } from './InfoMatch.styles';
 
-export const InfoMatch = () => {
+export const InfoMatch = ({ isHeader, data: { venue, event_date, league } }) => {
+  const time = new Date(Date.parse(event_date));
+  const correctTime = time.toUTCString().slice(0, -7);
+
   return (
-    <InfoMatchWrapper>
-      <DateMatch>Sunday March 6 - 15:00 </DateMatch>
-      <LocationMatch>Emierates Stadium</LocationMatch>
-      <PLLogo>LOGO</PLLogo>
+    <InfoMatchWrapper isHeader={isHeader}>
+      <DateMatch>{correctTime}</DateMatch>
+      <span>{venue}</span>
+      <PLLogo src="https://cdn.freelogovectors.net/wp-content/uploads/2020/08/epl-premierleague-logo.png" alt="" />
     </InfoMatchWrapper>
   );
 };
