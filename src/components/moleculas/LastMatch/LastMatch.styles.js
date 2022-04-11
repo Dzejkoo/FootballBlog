@@ -10,15 +10,24 @@ export const MatchWrapper = styled.div`
 `;
 
 export const ResultWrapper = styled.div`
-  background-image: ${({ isHeader }) => (isHeader ? `url(${bgcImages.bgcResults})` : null)};
   width: 100%;
-  height: ${({ isHeader }) => (isHeader ? `150px` : `auto`)};
   display: flex;
-  color: ${({ theme }) => theme.colors.white};
-  display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
+  background: ${({ isHeader, theme }) => (isHeader ? `url(${bgcImages.bgcResults})` : theme.colors.white)};
+  height: ${({ isHeader }) => (isHeader ? `150px` : `auto`)};
   color: ${({ isHeader, theme }) => (isHeader ? `${theme.colors.white}` : `${theme.colors.black}`)};
+
+  &::after {
+    content: '';
+    display: ${({ isHeader }) => (isHeader ? 'none' : 'block')};
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    left: 0;
+    background-color: black;
+  }
 `;
 
 export const Separate = styled.span`
