@@ -9,7 +9,7 @@ export const InfoMatch = ({ isHeader, data: { venue, event_date, league } }) => 
     <InfoMatchWrapper isHeader={isHeader}>
       <DateMatch>{correctTime}</DateMatch>
       <span>{venue}</span>
-      <PLLogo src="https://cdn.freelogovectors.net/wp-content/uploads/2020/08/epl-premierleague-logo.png" alt="" />
+      <PLLogo src={league.logo} alt="" />
     </InfoMatchWrapper>
   );
 };
