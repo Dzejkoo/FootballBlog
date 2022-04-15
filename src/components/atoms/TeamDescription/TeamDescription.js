@@ -6,7 +6,7 @@ export const TeamDescription = ({ isHeader, isEnemy, data: { homeTeam, awayTeam,
     <TeamDescriptionWrapper isEnemy={isEnemy}>
       <ScoredGoal isHeader={isHeader}>{isEnemy ? goalsAwayTeam : goalsHomeTeam}</ScoredGoal>
       <TeamName isHeader={isHeader}>{isEnemy ? awayTeam.team_name : homeTeam.team_name}</TeamName>
-      <TeamLogo isHeader={isHeader} src="https://logos-world.net/wp-content/uploads/2020/05/Arsenal-Logo.png" alt="" />
+      <TeamLogo isHeader={isHeader} src={isEnemy ? awayTeam.logo : homeTeam.logo} alt="" />
     </TeamDescriptionWrapper>
   );
 };
