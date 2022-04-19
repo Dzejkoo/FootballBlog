@@ -25,7 +25,7 @@ export const TeamName = styled.span`
 
 export const TeamLogo = styled.img`
   display: block;
-  width: ${({ isHeader }) => (isHeader ? `80px` : `40px`)};
+  width: ${({ isHeader }) => (isHeader ? `80px` : `30px`)};
   order: ${({ isHeader }) => (isHeader ? `3` : `0`)};
 `;
 

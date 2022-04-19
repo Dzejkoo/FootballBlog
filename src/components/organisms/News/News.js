@@ -2,6 +2,7 @@ import React, { useEffect, useReducer } from 'react';
 import { Wrapper } from './News.styles';
 import axios from 'axios';
 import { ArticlesSort } from '../../moleculas/Articles/ArtcilesSort/ArticlesSort';
+import { Spinner } from '../../atoms/Spinner/Spinner';
 
 const API_TOKEN = 'b177168089829f8761a0f8673e5430';
 
@@ -115,5 +116,5 @@ export const News = () => {
       .catch((error) => dispath({ type: ACTION.ERROR, error: error }));
   }, []);
 
-  return <Wrapper>{loading ? <p>loading...</p> : error ? <p>{error}</p> : <ArticlesSort articlesData={data} />}</Wrapper>;
+  return <Wrapper>{loading ? <Spinner /> : error ? <p>{error}</p> : <ArticlesSort articlesData={data} />}</Wrapper>;
 };

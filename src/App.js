@@ -7,7 +7,7 @@ import { Team } from './components/organisms/Team/Team';
 import TeamProvider from './providers/TeamProvider';
 import { MainTemplate } from './components/templates/MainTemplate';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import Spinner from './components/atoms/Spinner/Spinner';
+import { Spinner } from './components/atoms/Spinner/Spinner';
 import { News } from './components/organisms/News/News';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { Matches } from './components/organisms/Matches/Matches';

@@ -14,5 +14,6 @@ export const DateMatch = styled.span`
 `;
 export const PLLogo = styled.img`
   width: 25px;
+  margin-bottom: 5px;
   margin-left: auto;
 `;

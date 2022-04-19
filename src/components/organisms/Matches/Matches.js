@@ -1,7 +1,8 @@
 import React, { useEffect, useReducer } from 'react';
-import styled from 'styled-components';
 import { LastMatch } from '../../moleculas/LastMatch/LastMatch';
 import { RestMatch } from '../../moleculas/RestMatch/RestMatch';
+import { Wrapper } from './Matches.styles';
+import { Spinner } from '../../atoms/Spinner/Spinner';
 
 const dataMock = [
   {
@@ -78,6 +79,7 @@ export const Matches = () => {
   } = state;
 
   useEffect(() => {
+    let clenupMemory = true;
     dispath({ type: ACTION.CALL_API });
     fetch('https://v2.api-football.com/fixtures/team/42/last/20', {
       method: 'GET',
@@ -87,15 +89,20 @@ export const Matches = () => {
     })
       .then((res) => res.json())
       .then((response) => {
-        dispath({ type: ACTION.SUCCESS, data: response });
+        if (clenupMemory) {
+          dispath({ type: ACTION.SUCCESS, data: response });
+        }
       })
       .catch((error) => dispath({ type: ACTION.ERROR, error: error }));
+    return () => {
+      clenupMemory = false;
+    };
   }, []);
 
   return (
     <Wrapper>
       {loading ? (
-        <p>loading...</p>
+        <p>Loading...</p>
       ) : (
         api.fixtures.map((queue, index) => {
           if (index === 0) {
@@ -108,26 +115,3 @@ export const Matches = () => {
     </Wrapper>
   );
 };
-
-const Wrapper = styled.div`
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: baseline;
-  flex-wrap: wrap;
-  &.slide-enter {
-    opacity: 0;
-  }
-  &.slide-enter-active {
-    opacity: 1;
-    transition: opacity 350ms ease-in-out;
-  }
-  &.slide-exit {
-    opacity: 0;
-  }
-  &.slide-exit-active {
-    opacity: 0;
-    transition: opacity 350ms ease-in-out;
-  }
-`;
