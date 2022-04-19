@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Spinner = () => (
+export const Spinner = () => (
   <StyledSpinner viewBox="0 0 50 50">
     <circle className="path" cx="25" cy="25" r="20" fill="none" strokeWidth="4" />
   </StyledSpinner>
@@ -12,9 +12,14 @@ const StyledSpinner = styled.svg`
   margin: -25px 0 0 -25px;
   width: 50px;
   height: 50px;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
 
   & .path {
-    stroke: ${({ theme }) => theme.colors.black};
+    stroke: #5652bf;
     stroke-linecap: round;
     animation: dash 1.5s ease-in-out infinite;
   }
@@ -39,5 +44,3 @@ const StyledSpinner = styled.svg`
     }
   }
 `;
-
-export default Spinner;
