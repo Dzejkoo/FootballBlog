@@ -11,6 +11,8 @@ import { Spinner } from './components/atoms/Spinner/Spinner';
 import { News } from './components/organisms/News/News';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { Matches } from './components/organisms/Matches/Matches';
+import { PremierLeague } from './components/organisms/Matches/PremierLeague/PremierLeague';
+import { CarabaoCup } from './components/organisms/Matches/CarabaoCup/CarabaoCup';
 
 const initialState = {
   loading: true,
@@ -63,7 +65,10 @@ export const App = () => {
               <Routes>
                 <Route path="/" element={state.loading ? <Spinner /> : <Team state={state} />} />
                 <Route path="/news" element={<News />} />
-                <Route path="/matches" element={<Matches />} />
+                <Route path="/matches" element={<Matches />}>
+                  <Route path="matches/premierleague" element={<PremierLeague />} />
+                  <Route path="matches/carabaocup" element={<CarabaoCup />} />
+                </Route>
               </Routes>
             </CSSTransition>
           </TransitionGroup>

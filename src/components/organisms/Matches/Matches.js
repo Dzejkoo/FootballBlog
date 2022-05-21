@@ -3,6 +3,8 @@ import { LastMatch } from '../../moleculas/LastMatch/LastMatch';
 import { RestMatch } from '../../moleculas/RestMatch/RestMatch';
 import { Wrapper } from './Matches.styles';
 import { Spinner } from '../../atoms/Spinner/Spinner';
+import { Routes, Route, NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
 const dataMock = [
   {
@@ -101,6 +103,10 @@ export const Matches = () => {
 
   return (
     <Wrapper>
+      <NavLeagues>
+        <StyledLink to="premierleague">Premier League</StyledLink>
+        <StyledLink to="caraboucup">Carabao Cup</StyledLink>
+      </NavLeagues>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -115,3 +121,7 @@ export const Matches = () => {
     </Wrapper>
   );
 };
+
+const NavLeagues = styled.div``;
+
+const StyledLink = styled(NavLink).attrs()``;
