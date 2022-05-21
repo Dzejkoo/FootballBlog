@@ -1,7 +1,6 @@
 import React from 'react';
 import { PlayerName, PlayerInfo } from './InjuryReport.styles';
 import { ArticleView, ArticleContent } from '../ArticleStyles/Article.styles';
-
 import useCollapse from 'react-collapsed';
 import { HeaderNews } from '../../../atoms/HeaderNews/HeaderNews';
 
