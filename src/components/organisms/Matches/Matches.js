@@ -85,6 +85,14 @@ export const Matches = () => {
   );
 };
 
-const NavLeagues = styled.div``;
+const NavLeagues = styled.div`
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  margin-bottom: 30px;
+`;
 
-const StyledLink = styled(NavLink).attrs()``;
+const StyledLink = styled(NavLink).attrs()`
+  padding: 10px 20px;
+  display: block;
+`;

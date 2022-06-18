@@ -4,11 +4,13 @@ import { NavLink } from 'react-router-dom';
 export const Wrapper = styled.div`
   width: 100%;
   padding-left: 20px;
-  margin: 40px auto;
+  margin: 40px auto 10px auto;
+  display: flex;
 `;
 
 export const StyledLink = styled(NavLink).attrs()`
   background-color: ${({ theme }) => theme.colors.white};
+  display: block;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.black};
   padding: 10px 20px;
