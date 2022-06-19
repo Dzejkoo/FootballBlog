@@ -9,11 +9,13 @@ import { MainTemplate } from './components/templates/MainTemplate';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { Spinner } from './components/atoms/Spinner/Spinner';
 import { News } from './components/organisms/News/News';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+
 import { Matches } from './components/organisms/Matches/Matches';
 import { PremierLeague } from './components/organisms/Matches/PremierLeague/PremierLeague';
 import { CarabaoCup } from './components/organisms/Matches/CarabaoCup/CarabaoCup';
 import { AllMatches } from './components/organisms/Matches/AllMatches/AllMatches';
+import { Header } from './components/moleculas/Header/Header';
+import AuthTemplate from './components/templates/AuthTemplate';
 
 const initialState = {
   loading: true,
@@ -55,28 +57,24 @@ export const App = () => {
       });
   }, []);
 
-  const location = useLocation();
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <MainTemplate>
-        <TeamProvider>
-          <TransitionGroup>
-            <CSSTransition key={location.key} classNames="slide" timeout={350}>
-              <Routes>
-                <Route path="/" element={state.loading ? <Spinner /> : <Team state={state} />} />
-                <Route path="/news" element={<News />} />
-                <Route path="/matches" element={<Matches />}>
-                  <Route index element={<AllMatches />} />
-                  <Route path="premierleague" element={<PremierLeague />} />
-                  <Route path="caraboucup" element={<CarabaoCup />} />
-                  <Route path="allmatches" element={<AllMatches />} />
-                </Route>
-              </Routes>
-            </CSSTransition>
-          </TransitionGroup>
-        </TeamProvider>
-      </MainTemplate>
+      <AuthTemplate />
+      <TeamProvider>
+        <Routes>
+          <Route path="/" element={<MainTemplate />}>
+            <Route path="/" element={state.loading ? <Spinner /> : <Team state={state} />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/matches" element={<Matches />}>
+              <Route index element={<AllMatches />} />
+              <Route path="premierleague" element={<PremierLeague />} />
+              <Route path="caraboucup" element={<CarabaoCup />} />
+              <Route path="allmatches" element={<AllMatches />} />
+            </Route>
+          </Route>
+        </Routes>
+      </TeamProvider>
     </ThemeProvider>
   );
 };
