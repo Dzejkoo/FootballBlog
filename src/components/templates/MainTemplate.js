@@ -1,6 +1,8 @@
 import React from 'react';
 import { Header } from '../moleculas/Header/Header';
 import styled from 'styled-components';
+import { Outlet, useLocation } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const Wrapper = styled.div`
   overflow-y: hidden;
@@ -8,11 +10,16 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-export const MainTemplate = ({ children }) => {
+export const MainTemplate = () => {
+  const location = useLocation();
   return (
     <Wrapper>
       <Header />
-      {children}
+      <TransitionGroup>
+        <CSSTransition key={location.key} classNames="slide" timeout={350}>
+          <Outlet />
+        </CSSTransition>
+      </TransitionGroup>
     </Wrapper>
   );
 };

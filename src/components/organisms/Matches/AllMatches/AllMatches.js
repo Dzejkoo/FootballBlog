@@ -42,7 +42,7 @@ const reducer = (state, action) => {
   }
 };
 
-export const CarabaoCup = () => {
+export const AllMatches = () => {
   const [state, dispath] = useReducer(reducer, initialState);
   const {
     loading,
@@ -50,12 +50,10 @@ export const CarabaoCup = () => {
     articles: { api },
   } = state;
 
-  // const reverseArr = api.fixtures.reverse();
-
   useEffect(() => {
     let clenupMemory = true;
     dispath({ type: ACTION.CALL_API });
-    fetch('https://v2.api-football.com/fixtures/team/42/3498', {
+    fetch('https://v2.api-football.com/fixtures/team/42/last/20', {
       method: 'GET',
       headers: {
         'X-RapidAPI-Key': '6ea31e09a7123bebeae57afc5ef0651e',
