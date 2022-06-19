@@ -21,7 +21,7 @@ export default function Signup() {
 
     //check two input password
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError('Password o not match');
+      return setError('Password do not match');
     }
 
     try {
@@ -43,7 +43,7 @@ export default function Signup() {
       <WrapperForm>
         <ContainerForm onSubmit={handleSubmit}>
           <Title>Sign Up</Title>
-          <ErrorWrapper>{error ? `<p>${error}</p>` : null}</ErrorWrapper>
+          {error ? <ErrorWrapper>{error}</ErrorWrapper> : null}
 
           <div id="email">
             <label>Email</label>
@@ -89,9 +89,11 @@ const Title = styled.h2`
 `;
 
 const ErrorWrapper = styled.div`
-  p {
-    padding: 20px 30px;
-  }
+  padding: 20px 30px;
+  text-align: center;
+  background-color: rgba(183, 21, 21, 0.3);
+  margin-bottom: 20px;
+  border-radius: 8px;
 `;
 
 const WrapperImg = styled.div`
@@ -101,6 +103,12 @@ const WrapperImg = styled.div`
   background-position: center;
   position: relative;
   clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+  @media screen and (max-width: 900px) {
+    clip-path: none;
+    position: relative;
+    background-image: none;
+    width: 80%;
+  }
   &::after {
     content: '';
     position: absolute;
@@ -111,6 +119,9 @@ const WrapperImg = styled.div`
     left: 0;
     transform: translateY(-50%);
     z-index: 0;
+    @media screen and (max-width: 900px) {
+      display: none;
+    }
   }
 
   &::before {
@@ -123,7 +134,9 @@ const WrapperImg = styled.div`
     background-size: 80%;
     background-repeat: no-repeat;
     background-color: white;
-
+    @media screen and (max-width: 900px) {
+      display: none;
+    }
     bottom: 10%;
     left: 0;
   }
@@ -134,6 +147,10 @@ const WrapperImg = styled.div`
     transform: translate(-50%, -50%);
     z-index: 1;
     width: 250px;
+    @media screen and (max-width: 900px) {
+      clip-path: none;
+      position: relative;
+    }
   }
 `;
 
@@ -141,11 +158,20 @@ const Wrapper = styled.div`
   display: flex;
   height: 100vh;
   flex-direction: row;
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   background-color: white;
 `;
 
 const WrapperForm = styled.div`
   width: 50%;
+  @media screen and (max-width: 900px) {
+    height: 80%;
+    width: 80%;
+  }
   display: flex;
   align-items: center;
   justify-content: center;
@@ -164,7 +190,7 @@ const ContainerForm = styled.form`
     color: ${({ theme }) => theme.colors.white};
     font-size: ${({ theme }) => theme.fontSize.l};
     border-radius: 7px;
-    margin: 10px 0;
+    margin: 10px 0 20px 0;
     cursor: pointer;
   }
   div {
