@@ -17,6 +17,7 @@ const TeamProvider = ({ children }) => {
   };
 
   const getMatchingPlayers = (data) => {
+    if (!data) return;
     const matchedPlayers = data.filter((player) => player.name.fullName.toLowerCase().includes(searchPhrase.toLowerCase()));
     return matchedPlayers;
   };

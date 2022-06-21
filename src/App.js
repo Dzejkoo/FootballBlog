@@ -6,16 +6,17 @@ import { GlobalStyle } from './assets/styles/globalStyle';
 import { Team } from './components/organisms/Team/Team';
 import TeamProvider from './providers/TeamProvider';
 import { MainTemplate } from './components/templates/MainTemplate';
-import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Spinner } from './components/atoms/Spinner/Spinner';
 import { News } from './components/organisms/News/News';
-
 import { Matches } from './components/organisms/Matches/Matches';
 import { PremierLeague } from './components/organisms/Matches/PremierLeague/PremierLeague';
 import { CarabaoCup } from './components/organisms/Matches/CarabaoCup/CarabaoCup';
 import { AllMatches } from './components/organisms/Matches/AllMatches/AllMatches';
-import { Header } from './components/moleculas/Header/Header';
-import AuthTemplate from './components/templates/AuthTemplate';
+import PrivateRoute from './authElements/PrivateRoute';
+import Login from './authElements/Login';
+import Signup from './authElements/Signup';
+import { AuthProvider, useAuth } from './providers/AuthProvider';
 
 const initialState = {
   loading: true,
@@ -45,7 +46,7 @@ const reducer = (state, action) => {
 
 export const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  const { currentUser } = useAuth();
   useEffect(() => {
     axios
       .get('/arsenalPlayers')
@@ -60,21 +61,32 @@ export const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <AuthTemplate />
-      <TeamProvider>
-        <Routes>
-          <Route path="/" element={<MainTemplate />}>
-            <Route path="/" element={state.loading ? <Spinner /> : <Team state={state} />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/matches" element={<Matches />}>
-              <Route index element={<AllMatches />} />
-              <Route path="premierleague" element={<PremierLeague />} />
-              <Route path="caraboucup" element={<CarabaoCup />} />
-              <Route path="allmatches" element={<AllMatches />} />
+      <AuthProvider>
+        <TeamProvider>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <PrivateRoute>
+                  <div>{console.log(currentUser)}</div>
+                </PrivateRoute>
+              }
+            />
+            <Route path="/" element={<MainTemplate />}>
+              <Route index element={state.loading ? <Spinner /> : <Team state={state} />} />
+              <Route path="/news" element={<News />} />
+              <Route path="/matches" element={<Matches />}>
+                <Route index element={<AllMatches />} />
+                <Route path="premierleague" element={<PremierLeague />} />
+                <Route path="caraboucup" element={<CarabaoCup />} />
+                <Route path="allmatches" element={<AllMatches />} />
+              </Route>
             </Route>
-          </Route>
-        </Routes>
-      </TeamProvider>
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </TeamProvider>
+      </AuthProvider>
     </ThemeProvider>
   );
 };

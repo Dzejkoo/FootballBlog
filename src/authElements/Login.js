@@ -1,33 +1,27 @@
-import React, { useRef, useState } from 'react';
-import { useAuth } from '../providers/AuthProvider';
-import { Link, useNavigate } from 'react-router-dom';
 import FootballAppLogo from '../assets/images/logo/FootballApp-logo.png';
-import { Wrapper, WrapperImg, WrapperForm, Title, ContainerForm, ErrorWrapper } from './AuthElements.styled';
+import { Wrapper, WrapperImg, WrapperForm, Title, ContainerForm, ErrorWrapper, ForgotPassword } from './AuthElements.styled';
+import React, { useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../providers/AuthProvider';
 
-export default function Signup() {
+export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
-  const { signup } = useAuth();
+  const { login } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
-
-    //check two input password
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError('Password do not match');
-    }
-
     try {
       setError('');
       setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value);
+      await login(emailRef.current.value, passwordRef.current.value);
       navigate('/');
+      console.log('login succes');
     } catch {
-      setError('Failde create accound');
+      setError('Failed to sign in');
     }
     setLoading(false);
   }
@@ -39,7 +33,7 @@ export default function Signup() {
       </WrapperImg>
       <WrapperForm>
         <ContainerForm onSubmit={handleSubmit}>
-          <Title>Sign Up</Title>
+          <Title>Log In</Title>
           {error ? <ErrorWrapper>{error}</ErrorWrapper> : null}
 
           <div id="email">
@@ -50,15 +44,14 @@ export default function Signup() {
             <label>Password</label>
             <input type="password" ref={passwordRef} required />
           </div>
-          <div id="password-confirm">
-            <label>Password Confirmation</label>
-            <input type="password" ref={passwordConfirmRef} required />
-          </div>
           <button disabled={loading} type="submit">
-            Sign Up
+            Log In
           </button>
+          <ForgotPassword>
+            <Link to="/forgot-password">Forgot password?</Link>
+          </ForgotPassword>
           <div>
-            Already have a account? <Link to="/login">Logi In</Link>
+            Need an accound? <Link to="/signup">Sing Up</Link>
           </div>
         </ContainerForm>
       </WrapperForm>

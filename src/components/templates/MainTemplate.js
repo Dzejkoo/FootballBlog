@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header } from '../moleculas/Header/Header';
 import styled from 'styled-components';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation, Route, Routes } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const Wrapper = styled.div`
