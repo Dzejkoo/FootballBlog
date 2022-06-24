@@ -267,20 +267,6 @@ export const arsenalPlayers = [
     citizenship: "FrCote d'Ivoireance",
     numberShirt: '19',
   },
-  {
-    image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Lacazette.png?raw=true',
-    name: {
-      fullName: 'Alexandre Lacazette',
-      firstName: 'Alexandre',
-      lastName: 'Lacazette',
-    },
-    position: 'Forward',
-    age: '30',
-    born: 'May 28, 1991/Lyon, France',
-    debut: 'v Chelsea (n) Community Shield, August 6, 2017 (drew 1-1, won on penalties)',
-    citizenship: 'France',
-    numberShirt: '9',
-  },
 
   {
     image: 'https://github.com/Dzejkoo/fs-players-card/blob/main/src/assets/images/players/Nketiah.png?raw=true',

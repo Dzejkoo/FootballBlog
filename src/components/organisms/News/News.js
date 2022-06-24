@@ -18,34 +18,6 @@ const query = `
     content
     headerText
   }
-  allTransferNews {
-    titlePhoto {
-      url
-    }
-    dataPublished
-    category
-    titleContent
-    contentPhoto {
-      url
-      alt
-    }
-    content
-    headerText
-  }
-  allInjuryReports {
-    titlePhoto {
-      url
-      alt
-    }
-    dataPublished
-    category
-    headerText
-    injuredPlayerInfo {
-      playerInfo
-      playerName
-      isInjured
-    }
-  }
 }
 `;
 
@@ -96,6 +68,7 @@ export const News = () => {
     articles: { data },
   } = state;
 
+  console.log();
   useEffect(() => {
     dispath({ type: ACTION.CALL_API });
     axios
@@ -111,6 +84,7 @@ export const News = () => {
         }
       )
       .then((response) => {
+        console.log(response);
         dispath({ type: ACTION.SUCCESS, data: response.data });
       })
       .catch((error) => dispath({ type: ACTION.ERROR, error: error }));

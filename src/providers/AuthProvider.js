@@ -15,7 +15,6 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
-  console.log(currentUser);
 
   //with fairebase make authorization
   function signup(email, password) {
@@ -24,14 +23,16 @@ export function AuthProvider({ children }) {
 
   //with firebase create user, set email and password
   function login(email, password) {
-    console.log('jestem w login');
     return signInWithEmailAndPassword(auth, email, password);
+  }
+
+  function logout() {
+    return signOut(auth);
   }
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
-      console.log(user);
       setLoading(false);
     });
 
@@ -42,6 +43,7 @@ export function AuthProvider({ children }) {
     currentUser,
     login,
     signup,
+    logout,
   };
   return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>;
 }
