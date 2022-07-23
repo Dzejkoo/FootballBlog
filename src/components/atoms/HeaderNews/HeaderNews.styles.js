@@ -1,11 +1,4 @@
 import styled from 'styled-components';
-import { theme } from '../../../assets/styles/theme';
-
-const categoryCheck = ({ category }) => {
-  if (category === 'injury report') return theme.colors.orange;
-  if (category === 'transfer news') return theme.colors.yellow;
-  if (category === 'news') return theme.colors.green;
-};
 
 export const HeaderArticleInfo = styled.div`
   font-weight: 300;
@@ -27,7 +20,7 @@ export const Category = styled.h2`
   letter-spacing: -5%;
   text-transform: uppercase;
   font-size: ${({ theme }) => theme.fontSize.m};
-  background-color: ${(category) => categoryCheck(category)};
+
   font-weight: 600;
   padding: 2px 5px;
   margin-top: 0;
@@ -60,7 +53,6 @@ export const Info = styled.p`
 
 export const HeaderArticle = styled.div`
   position: relative;
-  border-top: 4px solid ${(category) => categoryCheck(category)};
   img {
     width: 100%;
   }

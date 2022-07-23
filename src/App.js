@@ -1,7 +1,6 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { ThemeProvider } from 'styled-components';
-import { theme } from './assets/styles/theme';
 import { GlobalStyle } from './assets/styles/globalStyle';
 import { Team } from './components/organisms/Team/Team';
 import TeamProvider from './providers/TeamProvider';
@@ -17,7 +16,9 @@ import PrivateRoute from './authElements/PrivateRoute';
 import Login from './authElements/Login';
 import Signup from './authElements/Signup';
 import { AuthProvider, useAuth } from './providers/AuthProvider';
-import { Header } from './components/moleculas/Header/Header';
+import { lightTheme } from './assets/styles/theme';
+import { darkTheme } from './assets/styles/theme';
+import { ModeContext, ModeProvider } from './providers/ThemeProvider';
 
 const initialState = {
   loading: true,
@@ -47,6 +48,10 @@ const reducer = (state, action) => {
 
 export const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const { theme } = useContext(ModeContext);
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+  console.log(themeMode);
+
   useEffect(() => {
     axios
       .get('/arsenalPlayers')
@@ -58,7 +63,7 @@ export const App = () => {
       });
   }, []);
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={themeMode}>
       <GlobalStyle />
       <AuthProvider>
         <TeamProvider>
