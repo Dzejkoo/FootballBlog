@@ -24,6 +24,8 @@ export const theme = {
 
 export const lightTheme = {
   colors: {
+    textColor: '#434343',
+    backgroundColor: '#F6F6F6',
     white: '#F6F6F6',
     grey: '#C4C4C4',
     black: '#434343',
@@ -48,9 +50,11 @@ export const lightTheme = {
 
 export const darkTheme = {
   colors: {
-    white: '#434343',
+    textColor: '#F6F6F6',
+    backgroundColor: '#434343',
+    white: '#F6F6F6',
     grey: '#C4C4C4',
-    black: '#F6F6F6',
+    black: '#434343',
     logoRed: '#B71515',
     orange: '#FDB913',
     yellow: '#FFFE04',

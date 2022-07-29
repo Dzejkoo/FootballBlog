@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
     background-color: ${({ theme }) => theme.colors.grey};
     &::placeholder {
       opacity: 50%;
+      color: ${({ theme }) => theme.colors.textColor};
     }
   }
 `;

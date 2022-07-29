@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
         sans-serif;
         margin: 0; 
         padding: 0;
-        background-color: ${({ theme }) => theme.colors.white};
+        background-color: ${({ theme }) => theme.colors.backgroundColor};
     }
 
      a, button{

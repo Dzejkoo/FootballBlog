@@ -6,8 +6,8 @@ export const Title = styled.h2`
   margin-bottom: 12px;
   font-weight: 600;
   font-size: ${({ theme }) => theme.fontSize.xl};
-  background-color: ${({ theme }) => theme.colors.white};
-  color: ${({ theme }) => theme.colors.black};
+  /* background-color: ${({ theme }) => theme.colors.w};// */
+  color: ${({ theme }) => theme.colors.textColor};
   padding: 7px 15px;
   text-transform: capitalize;
 `;

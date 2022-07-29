@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import AuthBgc from '../assets/images/authBgc/BGC_auth.png';
-import ArsenalLogoDesc from '../assets/images/logo/Arsenal-logo-desc.png';
 
 export const Title = styled.h2`
   text-align: center;
@@ -44,12 +43,10 @@ export const ErrorWrapper = styled.div`
 export const WrapperImg = styled.div`
   width: 60%;
   background-image: url(${AuthBgc});
-  /* background-size: cover; */
   background-position: top left;
   background-repeat: no-repeat;
   position: relative;
   background-size: 40%;
-  /* clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%); */
   @media screen and (max-width: 900px) {
     clip-path: none;
     position: relative;

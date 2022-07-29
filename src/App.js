@@ -50,7 +50,6 @@ export const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { theme } = useContext(ModeContext);
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
-  console.log(themeMode);
 
   useEffect(() => {
     axios
