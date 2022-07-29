@@ -3,6 +3,7 @@ import { Wrapper, WrapperImg, WrapperForm, Title, ContainerForm, ErrorWrapper, F
 import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../providers/AuthProvider';
+import { FacebookAuth } from './FacebookAuth';
 
 export default function Login() {
   const emailRef = useRef();
@@ -54,6 +55,7 @@ export default function Login() {
             Need an accound? <Link to="/signup">Sing Up</Link>
           </div>
         </ContainerForm>
+        <FacebookAuth />
       </WrapperForm>
     </Wrapper>
   );

@@ -101,9 +101,4 @@ export const Wrapper = styled.div`
   width: 90%;
   margin: 20px auto;
   position: relative;
-  img {
-    position: absolute;
-    top: -20px;
-    left: -30px;
-  }
 `;

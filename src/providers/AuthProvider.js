@@ -1,11 +1,20 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, sendPasswordResetEmail } from 'firebase/auth';
+import {
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+  sendPasswordResetEmail,
+  FacebookAuthProvider,
+} from 'firebase/auth';
 import { auth } from '../firebase';
 
 const AuthContext = React.createContext({
   signup: () => {},
   login: () => {},
   logout: () => {},
+  facebookLogin: () => {},
 });
 
 export function useAuth() {
@@ -15,6 +24,10 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
+
+  function facebookLogin() {
+    signInWithPopup(auth, new FacebookAuthProvider());
+  }
 
   //with fairebase make authorization
   function signup(email, password) {
@@ -44,6 +57,7 @@ export function AuthProvider({ children }) {
     login,
     signup,
     logout,
+    facebookLogin,
   };
   return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>;
 }
