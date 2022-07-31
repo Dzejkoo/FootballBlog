@@ -1,5 +1,5 @@
 import FootballAppLogo from '../assets/images/logo/FootballApp-logo.png';
-import { Wrapper, WrapperImg, WrapperForm, Title, ContainerForm, ErrorWrapper, ForgotPassword } from './AuthElements.styled';
+import { Wrapper, WrapperImg, WrapperForm, Title, ContainerForm, ErrorWrapper, ForgotPassword, ButtonLogin } from './AuthElements.styled';
 import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../providers/AuthProvider';
@@ -45,9 +45,10 @@ export default function Login() {
             <label>Password</label>
             <input type="password" ref={passwordRef} required />
           </div>
-          <button disabled={loading} type="submit">
+          <ButtonLogin disabled={loading} type="submit">
             Log In
-          </button>
+          </ButtonLogin>
+          <FacebookAuth />
           <ForgotPassword>
             <Link to="/forgot-password">Forgot password?</Link>
           </ForgotPassword>
@@ -55,7 +56,6 @@ export default function Login() {
             Need an accound? <Link to="/signup">Sing Up</Link>
           </div>
         </ContainerForm>
-        <FacebookAuth />
       </WrapperForm>
     </Wrapper>
   );

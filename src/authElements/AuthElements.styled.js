@@ -104,23 +104,24 @@ export const WrapperForm = styled.div`
   align-items: center;
   justify-content: center;
 `;
+export const ButtonLogin = styled.button`
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.logoRed};
+  border: 0;
+  padding: 10px;
+  color: ${({ theme }) => theme.colors.white};
+  font-size: ${({ theme }) => theme.fontSize.l};
+  border-radius: 7px;
+  margin: 10px 0 20px 0;
+  cursor: pointer;
+`;
 export const ContainerForm = styled.form`
   max-width: 340px;
   width: 340px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  button {
-    width: 100%;
-    background-color: ${({ theme }) => theme.colors.logoRed};
-    border: 0;
-    padding: 10px;
-    color: ${({ theme }) => theme.colors.white};
-    font-size: ${({ theme }) => theme.fontSize.l};
-    border-radius: 7px;
-    margin: 10px 0 20px 0;
-    cursor: pointer;
-  }
+
   div {
     width: 100%;
     display: flex;

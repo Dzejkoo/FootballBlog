@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   signInWithPopup,
   createUserWithEmailAndPassword,
@@ -24,9 +25,16 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
+  const provider = new FacebookAuthProvider();
+  const navigate = useNavigate();
 
   function facebookLogin() {
-    signInWithPopup(auth, new FacebookAuthProvider());
+    setLoading(true);
+    signInWithPopup(auth, provider).then((res) => {
+      if (res.user) {
+        navigate('/');
+      }
+    });
   }
 
   //with fairebase make authorization
@@ -58,6 +66,7 @@ export function AuthProvider({ children }) {
     signup,
     logout,
     facebookLogin,
+    loading,
   };
   return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>;
 }

@@ -3,7 +3,7 @@ import { Navigation } from '../Navigation/Navigation';
 import { useAuth } from '../../../providers/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import { ModeContext } from '../../../providers/ThemeProvider';
-import { Wrapper, ContainerTopHeader, Auth, UserIconStyled, Switcher } from './Header.styled';
+import { Wrapper, ContainerTopHeader, Auth, Switcher } from './Header.styled';
 import { User } from '../../../assets/images/vector/User';
 import { LogoFootballApp } from '../../../assets/images/vector/Logo';
 
