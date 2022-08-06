@@ -19,6 +19,7 @@ import { AuthProvider, useAuth } from './providers/AuthProvider';
 import { lightTheme } from './assets/styles/theme';
 import { darkTheme } from './assets/styles/theme';
 import { ModeContext, ModeProvider } from './providers/ThemeProvider';
+import NewsProvider from './providers/NewsProvider';
 
 const initialState = {
   loading: true,
@@ -66,22 +67,25 @@ export const App = () => {
       <GlobalStyle />
       <AuthProvider>
         <TeamProvider>
-          <Routes>
-            <Route element={<PrivateRoute />}>
-              <Route path="/" element={<MainTemplate />}>
-                <Route index element={state.loading ? <Spinner /> : <Team state={state} />} />
-                <Route path="/news" element={<News />} />
-                <Route path="/matches" element={<Matches />}>
-                  <Route index element={<AllMatches />} />
-                  <Route path="premierleague" element={<PremierLeague />} />
-                  <Route path="caraboucup" element={<CarabaoCup />} />
-                  <Route path="allmatches" element={<AllMatches />} />
+          <NewsProvider>
+            <Routes>
+              <Route element={<PrivateRoute />}>
+                <Route path="/" element={<MainTemplate />}>
+                  <Route index element={state.loading ? <Spinner /> : <Team state={state} />} />
+                  <Route path="/news" element={<News />} />
+                  <Route path="/news/:post_title" element={<News />} />
+                  <Route path="/matches" element={<Matches />}>
+                    <Route index element={<AllMatches />} />
+                    <Route path="premierleague" element={<PremierLeague />} />
+                    <Route path="caraboucup" element={<CarabaoCup />} />
+                    <Route path="allmatches" element={<AllMatches />} />
+                  </Route>
                 </Route>
               </Route>
-            </Route>
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
+            </Routes>
+          </NewsProvider>
         </TeamProvider>
       </AuthProvider>
     </ThemeProvider>

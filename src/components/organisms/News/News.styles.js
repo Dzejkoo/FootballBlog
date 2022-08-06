@@ -6,31 +6,7 @@ export const Wrapper = styled.div`
   display: flex;
   position: relative;
   flex-direction: row;
-  align-items: flex-start;
   flex-wrap: wrap;
-  .container {
-    display: grid;
-    grid-template-columns: 1fr, 1fr;
-    grid-template-rows: masonry;
-  }
-  &.slide-enter {
-    opacity: 0;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-  }
-  &.slide-enter-active {
-    opacity: 1;
-    transition: opacity 350ms ease-in-out;
-  }
-  &.slide-exit {
-    opacity: 0;
-  }
-  &.slide-exit-active {
-    opacity: 0;
-    transition: opacity 350ms ease-in-out;
-  }
-  & > *:child {
-    align-self: flex-end;
-  }
+  align-items: center;
+  justify-content: space-around;
 `;

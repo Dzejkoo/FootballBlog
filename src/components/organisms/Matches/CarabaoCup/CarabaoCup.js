@@ -50,8 +50,6 @@ export const CarabaoCup = () => {
     articles: { api },
   } = state;
 
-  // const reverseArr = api.fixtures.reverse();
-
   useEffect(() => {
     let clenupMemory = true;
     dispath({ type: ACTION.CALL_API });

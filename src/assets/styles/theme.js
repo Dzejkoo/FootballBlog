@@ -3,6 +3,7 @@ export const theme = {
     white: '#F6F6F6',
     grey: '#C4C4C4',
     black: '#434343',
+    greyLight: '#666',
     logoRed: '#B71515',
     orange: '#FDB913',
     yellow: '#FFFE04',
@@ -15,6 +16,7 @@ export const theme = {
   fontSize: {
     xxl: '30px',
     xl: '24px',
+    xll: '20px',
     l: '17px',
     ml: '15px',
     m: '12px',
@@ -29,6 +31,7 @@ export const lightTheme = {
     white: '#F6F6F6',
     grey: '#C4C4C4',
     black: '#434343',
+    greyLight: '#F0F0F0',
     logoRed: '#B71515',
     orange: '#FDB913',
     yellow: '#FFFE04',
@@ -41,6 +44,7 @@ export const lightTheme = {
   fontSize: {
     xxl: '30px',
     xl: '24px',
+    xll: '20px',
     l: '17px',
     ml: '15px',
     m: '12px',
@@ -67,6 +71,7 @@ export const darkTheme = {
   fontSize: {
     xxl: '30px',
     xl: '24px',
+    xll: '20px',
     l: '17px',
     ml: '15px',
     m: '12px',

@@ -1,94 +1,110 @@
-import React, { useEffect, useReducer } from 'react';
+import React from 'react';
 import { Wrapper } from './News.styles';
-import axios from 'axios';
-import { ArticlesSort } from '../../moleculas/Articles/ArtcilesSort/ArticlesSort';
 import { Spinner } from '../../atoms/Spinner/Spinner';
+import { NewsContext } from '../../../providers/NewsProvider';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
-const API_TOKEN = 'b177168089829f8761a0f8673e5430';
+export const NewsHeader = ({
+  data: {
+    titlePhoto: { url },
+    titleHeader,
+    headerDesc,
+    photoAuthor,
+    nameAuthor,
+  },
+}) => {
+  const urlRegex = /\s/g;
 
-const query = `
-{
-  allTeamNews {
-    titlePhoto {
-      url
-    }
-    dataPublished
-    category
-    titleContent
-    content
-    headerText
-  }
-}
-`;
-
-const initialState = {
-  loading: true,
-  error: null,
-  articles: {},
-};
-
-const ACTION = {
-  CALL_API: 'call-api',
-  SUCCESS: 'success',
-  ERROR: 'error',
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case ACTION.CALL_API: {
-      return {
-        ...state,
-        loading: true,
-      };
-    }
-    case ACTION.SUCCESS: {
-      return {
-        ...state,
-        loading: false,
-        articles: action.data,
-      };
-    }
-    case ACTION.ERROR: {
-      return {
-        ...state,
-        loading: false,
-        error: action.error,
-      };
-    }
-    default:
-      return state;
-  }
+  const url_title = titleHeader.toLowerCase().replace(urlRegex, '-');
+  console.log(url_title);
+  return (
+    <NewsHeaderStyled>
+      <HeaderPhoto>
+        <img src={url} alt="header" />
+      </HeaderPhoto>
+      <HeaderDesc>
+        <NavLink to={`/news/${url_title}`} className="title">
+          {titleHeader}
+        </NavLink>
+        <p className="pre-title">{headerDesc}</p>
+        <div className="author">
+          <div className="author-photo">
+            <img src={photoAuthor.url} alt="author"></img>
+          </div>
+          <p className="author-name">Written by {nameAuthor}</p>
+        </div>
+      </HeaderDesc>
+    </NewsHeaderStyled>
+  );
 };
 
 export const News = () => {
-  const [state, dispath] = useReducer(reducer, initialState);
   const {
-    loading,
-    error,
-    articles: { data },
-  } = state;
-
+    state: { loading, error, articles },
+  } = React.useContext(NewsContext);
   console.log();
-  useEffect(() => {
-    dispath({ type: ACTION.CALL_API });
-    axios
-      .post(
-        'https://graphql.datocms.com/',
-        {
-          query: query,
-        },
-        {
-          headers: {
-            authorization: `Bearer ${API_TOKEN}`,
-          },
-        }
-      )
-      .then((response) => {
-        console.log(response);
-        dispath({ type: ACTION.SUCCESS, data: response.data });
-      })
-      .catch((error) => dispath({ type: ACTION.ERROR, error: error }));
-  }, []);
 
-  return <Wrapper>{loading ? <Spinner /> : error ? <p>{error}</p> : <ArticlesSort articlesData={data} />}</Wrapper>;
+  return (
+    <Wrapper>{loading ? <Spinner /> : error ? <p>{error}</p> : articles.data.allTeamNews.map((article) => <NewsHeader data={article} />)}</Wrapper>
+  );
 };
+
+export const HeaderDesc = styled.div`
+  color: ${({ theme }) => theme.colors.textColor};
+  margin-top: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #eee;
+  .title {
+    font-weight: 500;
+    font-size: ${({ theme }) => theme.fontSize.xll};
+    color: ${({ theme }) => theme.colors.textColor};
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  .pre-title {
+    font-weight: 300;
+    font-size: ${({ theme }) => theme.fontSize.ml};
+    color: ${({ theme }) => theme.colors.grayLight};
+  }
+  .author {
+    width: 100%;
+    display: flex;
+    padding-top: 10px;
+  }
+  .author-photo {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: ${({ theme }) => theme.colors.grey};
+    img {
+      border-radius: 50%;
+
+      width: 100%;
+    }
+  }
+  .author-name {
+    font-weight: 300;
+    font-size: ${({ theme }) => theme.fontSize.m};
+    color: ${({ theme }) => theme.colors.grayLight};
+  }
+`;
+
+export const NewsHeaderStyled = styled.div`
+  max-width: 650px;
+  margin-bottom: 40px;
+`;
+
+export const HeaderPhoto = styled.div`
+  width: 100%;
+  max-height: 365px;
+  img {
+    width: 100%;
+    max-height: 365px;
+    border-radius: 5px;
+  }
+`;

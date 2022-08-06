@@ -50,6 +50,8 @@ export const AllMatches = () => {
     articles: { api },
   } = state;
 
+  console.log(loading);
+
   useEffect(() => {
     let clenupMemory = true;
     dispath({ type: ACTION.CALL_API });
