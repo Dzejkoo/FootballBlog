@@ -20,6 +20,7 @@ import { lightTheme } from './assets/styles/theme';
 import { darkTheme } from './assets/styles/theme';
 import { ModeContext, ModeProvider } from './providers/ThemeProvider';
 import NewsProvider from './providers/NewsProvider';
+import { Article } from './components/moleculas/Article/Article';
 
 const initialState = {
   loading: true,
@@ -73,7 +74,7 @@ export const App = () => {
                 <Route path="/" element={<MainTemplate />}>
                   <Route index element={state.loading ? <Spinner /> : <Team state={state} />} />
                   <Route path="/news" element={<News />} />
-                  <Route path="/news/:post_title" element={<News />} />
+                  <Route path="/news/:post_title" element={<Article />} />
                   <Route path="/matches" element={<Matches />}>
                     <Route index element={<AllMatches />} />
                     <Route path="premierleague" element={<PremierLeague />} />

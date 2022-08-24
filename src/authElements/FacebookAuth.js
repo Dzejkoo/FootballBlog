@@ -5,7 +5,6 @@ import { ReactComponent as FacebookIcon } from '../assets/images/icon/Facebook-i
 
 export const FacebookAuth = () => {
   const { facebookLogin, loading } = useAuth();
-  console.log(loading);
 
   return (
     <ButtonFacebookStyled onClick={facebookLogin} disabled={loading}>
