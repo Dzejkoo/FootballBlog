@@ -17,7 +17,6 @@ export const NewsHeader = ({
   const urlRegex = /\s/g;
 
   const url_title = titleHeader.toLowerCase().replace(urlRegex, '-');
-  console.log(url_title);
   return (
     <NewsHeaderStyled>
       <HeaderPhoto>
@@ -43,7 +42,6 @@ export const News = () => {
   const {
     state: { loading, error, articles },
   } = React.useContext(NewsContext);
-  console.log();
 
   return (
     <Wrapper>{loading ? <Spinner /> : error ? <p>{error}</p> : articles.data.allTeamNews.map((article) => <NewsHeader data={article} />)}</Wrapper>

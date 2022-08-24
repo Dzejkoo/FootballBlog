@@ -62,7 +62,6 @@ const NewsProvider = ({ children }) => {
   };
   const [state, dispath] = useReducer(reducer, initialState);
 
-  console.log(state);
   useEffect(() => {
     dispath({ type: ACTION.CALL_API });
     axios
