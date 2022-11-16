@@ -75,6 +75,12 @@ export const App = () => {
                   <Route index element={state.loading ? <Spinner /> : <Team state={state} />} />
                   <Route path="/news" element={<News />} />
                   <Route path="/news/:post_title" element={<Article />} />
+                  <Route path="/matches" element={<Matches />}>
+                    <Route index element={<AllMatches />} />
+                    <Route path="premierleague" element={<PremierLeague />} />
+                    <Route path="caraboucup" element={<CarabaoCup />} />
+                    <Route path="allmatches" element={<AllMatches />} />
+                  </Route>
                 </Route>
               </Route>
               <Route path="/signup" element={<Signup />} />
