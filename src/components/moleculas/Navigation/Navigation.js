@@ -6,7 +6,6 @@ export const Navigation = () => {
     <Wrapper>
       <StyledLink to="/">Team</StyledLink>
       <StyledLink to="/news">News</StyledLink>
-      <StyledLink to="/matches">Matches</StyledLink>
     </Wrapper>
   );
 };

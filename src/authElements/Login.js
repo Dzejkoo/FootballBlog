@@ -49,9 +49,6 @@ export default function Login() {
             Log In
           </ButtonLogin>
           <FacebookAuth />
-          <ForgotPassword>
-            <Link to="/forgot-password">Forgot password?</Link>
-          </ForgotPassword>
           <div>
             Need an accound? <Link to="/signup">Sing Up</Link>
           </div>

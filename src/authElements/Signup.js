@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useAuth } from '../providers/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import FootballAppLogo from '../assets/images/logo/FootballApp-logo.png';
-import { Wrapper, WrapperImg, WrapperForm, Title, ContainerForm, ErrorWrapper } from './AuthElements.styled';
+import { Wrapper, WrapperImg, WrapperForm, Title, ContainerForm, ErrorWrapper, ButtonLogin } from './AuthElements.styled';
 
 export default function Signup() {
   const emailRef = useRef();
@@ -54,9 +54,9 @@ export default function Signup() {
             <label>Password Confirmation</label>
             <input type="password" ref={passwordConfirmRef} required />
           </div>
-          <button disabled={loading} type="submit">
+          <ButtonLogin disabled={loading} type="submit">
             Sign Up
-          </button>
+          </ButtonLogin>
           <div>
             Already have a account? <Link to="/login">Logi In</Link>
           </div>
